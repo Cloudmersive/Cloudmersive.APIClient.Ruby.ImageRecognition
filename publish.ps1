@@ -1,1 +1,1 @@
-& gem push .\client\cloudmersive-convert-api-client-1.2.9.gem
+& gem push .\client\cloudmersive-image-recognition-api-client-1.2.9.gem
