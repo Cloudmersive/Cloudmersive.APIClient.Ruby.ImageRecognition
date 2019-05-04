@@ -4,10 +4,69 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**face_compare**](FaceApi.md#face_compare) | **POST** /image/face/compare-and-match | Compare and match faces
 [**face_crop_first**](FaceApi.md#face_crop_first) | **POST** /image/face/crop/first | Crop image to face (square)
 [**face_crop_first_round**](FaceApi.md#face_crop_first_round) | **POST** /image/face/crop/first/round | Crop image to face (round)
 [**face_detect_age**](FaceApi.md#face_detect_age) | **POST** /image/face/detect-age | Detect the age of people in an image
 [**face_locate**](FaceApi.md#face_locate) | **POST** /image/face/locate | Find faces in an image
+[**face_locate_with_landmarks**](FaceApi.md#face_locate_with_landmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+
+
+# **face_compare**
+> FaceCompareResponse face_compare(input_image, match_face)
+
+Compare and match faces
+
+Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
+
+input_image = File.new("/path/to/file.txt") # File | Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
+
+match_face = File.new("/path/to/file.txt") # File | Image of a single face to compare and match against.
+
+
+begin
+  #Compare and match faces
+  result = api_instance.face_compare(input_image, match_face)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling FaceApi->face_compare: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_image** | **File**| Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported. | 
+ **match_face** | **File**| Image of a single face to compare and match against. | 
+
+### Return type
+
+[**FaceCompareResponse**](FaceCompareResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
 
 
 # **face_crop_first**
@@ -214,6 +273,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FaceLocateResponse**](FaceLocateResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **face_locate_with_landmarks**
+> FaceLocateWithLandmarksResponse face_locate_with_landmarks(image_file)
+
+Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+
+Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+  result = api_instance.face_locate_with_landmarks(image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling FaceApi->face_locate_with_landmarks: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+[**FaceLocateWithLandmarksResponse**](FaceLocateWithLandmarksResponse.md)
 
 ### Authorization
 

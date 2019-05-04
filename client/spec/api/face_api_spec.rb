@@ -32,6 +32,19 @@ describe 'FaceApi' do
     end
   end
 
+  # unit tests for face_compare
+  # Compare and match faces
+  # Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
+  # @param input_image Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
+  # @param match_face Image of a single face to compare and match against.
+  # @param [Hash] opts the optional parameters
+  # @return [FaceCompareResponse]
+  describe 'face_compare test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for face_crop_first
   # Crop image to face (square)
   # Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
@@ -75,6 +88,18 @@ describe 'FaceApi' do
   # @param [Hash] opts the optional parameters
   # @return [FaceLocateResponse]
   describe 'face_locate test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for face_locate_with_landmarks
+  # Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+  # Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [FaceLocateWithLandmarksResponse]
+  describe 'face_locate_with_landmarks test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

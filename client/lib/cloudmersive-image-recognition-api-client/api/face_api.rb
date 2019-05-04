@@ -20,6 +20,69 @@ module CloudmersiveImageRecognitionApiClient
       @api_client = api_client
     end
 
+    # Compare and match faces
+    # Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
+    # @param input_image Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
+    # @param match_face Image of a single face to compare and match against.
+    # @param [Hash] opts the optional parameters
+    # @return [FaceCompareResponse]
+    def face_compare(input_image, match_face, opts = {})
+      data, _status_code, _headers = face_compare_with_http_info(input_image, match_face, opts)
+      return data
+    end
+
+    # Compare and match faces
+    # Find the faces in an input image, and compare against a reference image to determine if there is a match against the face in the reference image.  The reference image (second parameter) should contain exactly one face.
+    # @param input_image Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
+    # @param match_face Image of a single face to compare and match against.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FaceCompareResponse, Fixnum, Hash)>] FaceCompareResponse data, response status code and response headers
+    def face_compare_with_http_info(input_image, match_face, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: FaceApi.face_compare ..."
+      end
+      # verify the required parameter 'input_image' is set
+      if @api_client.config.client_side_validation && input_image.nil?
+        fail ArgumentError, "Missing the required parameter 'input_image' when calling FaceApi.face_compare"
+      end
+      # verify the required parameter 'match_face' is set
+      if @api_client.config.client_side_validation && match_face.nil?
+        fail ArgumentError, "Missing the required parameter 'match_face' when calling FaceApi.face_compare"
+      end
+      # resource path
+      local_var_path = "/image/face/compare-and-match"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["inputImage"] = input_image
+      form_params["matchFace"] = match_face
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'FaceCompareResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FaceApi#face_compare\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Crop image to face (square)
     # Crop an image to the face (rectangular crop).  If there is more than one face present, choose the first one.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -240,6 +303,62 @@ module CloudmersiveImageRecognitionApiClient
         :return_type => 'FaceLocateResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FaceApi#face_locate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+    # Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [FaceLocateWithLandmarksResponse]
+    def face_locate_with_landmarks(image_file, opts = {})
+      data, _status_code, _headers = face_locate_with_landmarks_with_http_info(image_file, opts)
+      return data
+    end
+
+    # Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+    # Locate the positions of all faces in an image, along with the eyes, eye brows, nose and mouth components of each
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(FaceLocateWithLandmarksResponse, Fixnum, Hash)>] FaceLocateWithLandmarksResponse data, response status code and response headers
+    def face_locate_with_landmarks_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: FaceApi.face_locate_with_landmarks ..."
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling FaceApi.face_locate_with_landmarks"
+      end
+      # resource path
+      local_var_path = "/image/face/locate-with-landmarks"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["imageFile"] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'FaceLocateWithLandmarksResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: FaceApi#face_locate_with_landmarks\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
