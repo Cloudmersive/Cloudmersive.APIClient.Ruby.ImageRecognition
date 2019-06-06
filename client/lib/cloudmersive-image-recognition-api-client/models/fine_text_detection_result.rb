@@ -13,28 +13,33 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # Specific recognition outcome
-  class RecognitionOutcome
-    # Scores closer to 1 are better than scores closer to 0
-    attr_accessor :confidence_score
+  # Result of an operation to detect text in a photo
+  class FineTextDetectionResult
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
-    # English language description of the image
-    attr_accessor :description
+    # Text items found in the input image
+    attr_accessor :text_items
+
+    # Count of text items found in the input image
+    attr_accessor :text_items_count
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'confidence_score' => :'ConfidenceScore',
-        :'description' => :'Description'
+        :'successful' => :'Successful',
+        :'text_items' => :'TextItems',
+        :'text_items_count' => :'TextItemsCount'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'confidence_score' => :'Float',
-        :'description' => :'String'
+        :'successful' => :'BOOLEAN',
+        :'text_items' => :'Array<FineTextItem>',
+        :'text_items_count' => :'Integer'
       }
     end
 
@@ -46,12 +51,18 @@ module CloudmersiveImageRecognitionApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ConfidenceScore')
-        self.confidence_score = attributes[:'ConfidenceScore']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Description')
-        self.description = attributes[:'Description']
+      if attributes.has_key?(:'TextItems')
+        if (value = attributes[:'TextItems']).is_a?(Array)
+          self.text_items = value
+        end
+      end
+
+      if attributes.has_key?(:'TextItemsCount')
+        self.text_items_count = attributes[:'TextItemsCount']
       end
 
     end
@@ -74,8 +85,9 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          confidence_score == o.confidence_score &&
-          description == o.description
+          successful == o.successful &&
+          text_items == o.text_items &&
+          text_items_count == o.text_items_count
     end
 
     # @see the `==` method
@@ -87,7 +99,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [confidence_score, description].hash
+      [successful, text_items, text_items_count].hash
     end
 
     # Builds the object from hash

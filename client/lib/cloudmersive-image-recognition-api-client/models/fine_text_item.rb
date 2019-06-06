@@ -13,28 +13,58 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # Specific recognition outcome
-  class RecognitionOutcome
-    # Scores closer to 1 are better than scores closer to 0
-    attr_accessor :confidence_score
+  # Individual instance of text occuring in an image; one piece of text
+  class FineTextItem
+    # X coordinate of the top/left text location; 0 represents the left edge of the input image
+    attr_accessor :top_left_x
 
-    # English language description of the image
-    attr_accessor :description
+    # Y coordinate of the top/left text location; 0 represents the top edge of the input image
+    attr_accessor :top_left_y
+
+    # X coordinate of the top/right text location; 0 represents the left edge of the input image
+    attr_accessor :top_right_x
+
+    # Y coordinate of the top/right text location; 0 represents the top edge of the input image
+    attr_accessor :top_right_y
+
+    # X coordinate of the bottom/left text location; 0 represents the left edge of the input image
+    attr_accessor :bottom_left_x
+
+    # Y coordinate of the bottom/left text location; 0 represents the top edge of the input image
+    attr_accessor :bottom_left_y
+
+    # X coordinate of the bottom/right text location; 0 represents the left edge of the input image
+    attr_accessor :bottom_right_x
+
+    # Y coordinate of the bottom/right text location; 0 represents the top edge of the input image
+    attr_accessor :bottom_right_y
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'confidence_score' => :'ConfidenceScore',
-        :'description' => :'Description'
+        :'top_left_x' => :'TopLeftX',
+        :'top_left_y' => :'TopLeftY',
+        :'top_right_x' => :'TopRightX',
+        :'top_right_y' => :'TopRightY',
+        :'bottom_left_x' => :'BottomLeftX',
+        :'bottom_left_y' => :'BottomLeftY',
+        :'bottom_right_x' => :'BottomRightX',
+        :'bottom_right_y' => :'BottomRightY'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'confidence_score' => :'Float',
-        :'description' => :'String'
+        :'top_left_x' => :'Integer',
+        :'top_left_y' => :'Integer',
+        :'top_right_x' => :'Integer',
+        :'top_right_y' => :'Integer',
+        :'bottom_left_x' => :'Integer',
+        :'bottom_left_y' => :'Integer',
+        :'bottom_right_x' => :'Integer',
+        :'bottom_right_y' => :'Integer'
       }
     end
 
@@ -46,12 +76,36 @@ module CloudmersiveImageRecognitionApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ConfidenceScore')
-        self.confidence_score = attributes[:'ConfidenceScore']
+      if attributes.has_key?(:'TopLeftX')
+        self.top_left_x = attributes[:'TopLeftX']
       end
 
-      if attributes.has_key?(:'Description')
-        self.description = attributes[:'Description']
+      if attributes.has_key?(:'TopLeftY')
+        self.top_left_y = attributes[:'TopLeftY']
+      end
+
+      if attributes.has_key?(:'TopRightX')
+        self.top_right_x = attributes[:'TopRightX']
+      end
+
+      if attributes.has_key?(:'TopRightY')
+        self.top_right_y = attributes[:'TopRightY']
+      end
+
+      if attributes.has_key?(:'BottomLeftX')
+        self.bottom_left_x = attributes[:'BottomLeftX']
+      end
+
+      if attributes.has_key?(:'BottomLeftY')
+        self.bottom_left_y = attributes[:'BottomLeftY']
+      end
+
+      if attributes.has_key?(:'BottomRightX')
+        self.bottom_right_x = attributes[:'BottomRightX']
+      end
+
+      if attributes.has_key?(:'BottomRightY')
+        self.bottom_right_y = attributes[:'BottomRightY']
       end
 
     end
@@ -74,8 +128,14 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          confidence_score == o.confidence_score &&
-          description == o.description
+          top_left_x == o.top_left_x &&
+          top_left_y == o.top_left_y &&
+          top_right_x == o.top_right_x &&
+          top_right_y == o.top_right_y &&
+          bottom_left_x == o.bottom_left_x &&
+          bottom_left_y == o.bottom_left_y &&
+          bottom_right_x == o.bottom_right_x &&
+          bottom_right_y == o.bottom_right_y
     end
 
     # @see the `==` method
@@ -87,7 +147,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [confidence_score, description].hash
+      [top_left_x, top_left_y, top_right_x, top_right_y, bottom_left_x, bottom_left_y, bottom_right_x, bottom_right_y].hash
     end
 
     # Builds the object from hash

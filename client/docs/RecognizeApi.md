@@ -8,6 +8,8 @@ Method | HTTP request | Description
 [**recognize_detect_and_unskew_document**](RecognizeApi.md#recognize_detect_and_unskew_document) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
 [**recognize_detect_objects**](RecognizeApi.md#recognize_detect_objects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
 [**recognize_detect_people**](RecognizeApi.md#recognize_detect_people) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+[**recognize_detect_text_fine**](RecognizeApi.md#recognize_detect_text_fine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
+[**recognize_detect_text_large**](RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognize_detect_vehicle_license_plates**](RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 
 
@@ -227,6 +229,108 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **recognize_detect_text_fine**
+> FineTextDetectionResult recognize_detect_text_fine(image_file)
+
+Detect fine text in a photo of a document
+
+Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Detect fine text in a photo of a document
+  result = api_instance.recognize_detect_text_fine(image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling RecognizeApi->recognize_detect_text_fine: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+[**FineTextDetectionResult**](FineTextDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **recognize_detect_text_large**
+> TextDetectionResult recognize_detect_text_large
+
+Detect large text in a photo
+
+Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
+
+begin
+  #Detect large text in a photo
+  result = api_instance.recognize_detect_text_large
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling RecognizeApi->recognize_detect_text_large: #{e}"
+end
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**TextDetectionResult**](TextDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 
