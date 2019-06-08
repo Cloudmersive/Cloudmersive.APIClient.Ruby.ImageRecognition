@@ -39,6 +39,15 @@ module CloudmersiveImageRecognitionApiClient
     # Y coordinate of the bottom/right text location; 0 represents the top edge of the input image
     attr_accessor :bottom_right_y
 
+    # Width in pixels of the text
+    attr_accessor :width
+
+    # Height in pixels of the text
+    attr_accessor :height
+
+    # Rotation Angle in radians of the text
+    attr_accessor :angle
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -50,7 +59,10 @@ module CloudmersiveImageRecognitionApiClient
         :'bottom_left_x' => :'BottomLeftX',
         :'bottom_left_y' => :'BottomLeftY',
         :'bottom_right_x' => :'BottomRightX',
-        :'bottom_right_y' => :'BottomRightY'
+        :'bottom_right_y' => :'BottomRightY',
+        :'width' => :'Width',
+        :'height' => :'Height',
+        :'angle' => :'Angle'
       }
     end
 
@@ -64,7 +76,10 @@ module CloudmersiveImageRecognitionApiClient
         :'bottom_left_x' => :'Integer',
         :'bottom_left_y' => :'Integer',
         :'bottom_right_x' => :'Integer',
-        :'bottom_right_y' => :'Integer'
+        :'bottom_right_y' => :'Integer',
+        :'width' => :'Integer',
+        :'height' => :'Integer',
+        :'angle' => :'Float'
       }
     end
 
@@ -108,6 +123,18 @@ module CloudmersiveImageRecognitionApiClient
         self.bottom_right_y = attributes[:'BottomRightY']
       end
 
+      if attributes.has_key?(:'Width')
+        self.width = attributes[:'Width']
+      end
+
+      if attributes.has_key?(:'Height')
+        self.height = attributes[:'Height']
+      end
+
+      if attributes.has_key?(:'Angle')
+        self.angle = attributes[:'Angle']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -135,7 +162,10 @@ module CloudmersiveImageRecognitionApiClient
           bottom_left_x == o.bottom_left_x &&
           bottom_left_y == o.bottom_left_y &&
           bottom_right_x == o.bottom_right_x &&
-          bottom_right_y == o.bottom_right_y
+          bottom_right_y == o.bottom_right_y &&
+          width == o.width &&
+          height == o.height &&
+          angle == o.angle
     end
 
     # @see the `==` method
@@ -147,7 +177,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [top_left_x, top_left_y, top_right_x, top_right_y, bottom_left_x, bottom_left_y, bottom_right_x, bottom_right_y].hash
+      [top_left_x, top_left_y, top_right_x, top_right_y, bottom_left_x, bottom_left_y, bottom_right_x, bottom_right_y, width, height, angle].hash
     end
 
     # Builds the object from hash

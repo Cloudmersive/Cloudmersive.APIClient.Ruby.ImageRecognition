@@ -11,5 +11,5 @@ Swagger Codegen version: 2.3.1
 =end
 
 module CloudmersiveImageRecognitionApiClient
-  VERSION = "1.3.1"
+  VERSION = "1.3.2"
 end
