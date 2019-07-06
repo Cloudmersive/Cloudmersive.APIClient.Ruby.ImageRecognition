@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **edit_composite_basic**
-> Object edit_composite_basic(location, base_image, layered_image)
+> String edit_composite_basic(location, base_image, layered_image)
 
 Composite two images together
 
@@ -56,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -70,7 +70,7 @@ Name | Type | Description  | Notes
 
 
 # **edit_draw_rectangle**
-> Object edit_draw_rectangle(request)
+> String edit_draw_rectangle(request)
 
 Draw rectangle onto an image
 
@@ -110,7 +110,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 
 
 # **edit_draw_text**
-> Object edit_draw_text(request)
+> String edit_draw_text(request)
 
 Draw text onto an image
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
