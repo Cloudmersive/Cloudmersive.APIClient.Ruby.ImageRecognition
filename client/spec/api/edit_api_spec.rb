@@ -46,6 +46,19 @@ describe 'EditApi' do
     end
   end
 
+  # unit tests for edit_contrast_adaptive
+  # Adaptively adjust the contrast of the image to be more appealing and easy to see
+  # Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
+  # @param gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_contrast_adaptive test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_draw_rectangle
   # Draw rectangle onto an image
   # Draw one or more rectangles, with customized visuals, onto an image

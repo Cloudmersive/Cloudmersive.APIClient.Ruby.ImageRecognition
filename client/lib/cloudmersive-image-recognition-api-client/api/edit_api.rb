@@ -89,6 +89,68 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
 
+    # Adaptively adjust the contrast of the image to be more appealing and easy to see
+    # Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
+    # @param gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_contrast_adaptive(gamma, image_file, opts = {})
+      data, _status_code, _headers = edit_contrast_adaptive_with_http_info(gamma, image_file, opts)
+      return data
+    end
+
+    # Adaptively adjust the contrast of the image to be more appealing and easy to see
+    # Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
+    # @param gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_contrast_adaptive_with_http_info(gamma, image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditApi.edit_contrast_adaptive ..."
+      end
+      # verify the required parameter 'gamma' is set
+      if @api_client.config.client_side_validation && gamma.nil?
+        fail ArgumentError, "Missing the required parameter 'gamma' when calling EditApi.edit_contrast_adaptive"
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling EditApi.edit_contrast_adaptive"
+      end
+      # resource path
+      local_var_path = "/image/edit/contrast/{gamma}/adaptive".sub('{' + 'gamma' + '}', gamma.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["imageFile"] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_contrast_adaptive\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Draw rectangle onto an image
     # Draw one or more rectangles, with customized visuals, onto an image
     # @param request 
