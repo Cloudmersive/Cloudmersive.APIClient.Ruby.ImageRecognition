@@ -72,11 +72,11 @@ describe 'EditApi' do
   end
 
   # unit tests for edit_draw_polygon
-  # Draw polygon onto an image
+  # Draw a polygon onto an image
   # Draw one or more polygons, with customized visuals, onto an image
   # @param request 
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'edit_draw_polygon test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -84,7 +84,7 @@ describe 'EditApi' do
   end
 
   # unit tests for edit_draw_rectangle
-  # Draw rectangle onto an image
+  # Draw a rectangle onto an image
   # Draw one or more rectangles, with customized visuals, onto an image
   # @param request 
   # @param [Hash] opts the optional parameters
@@ -111,8 +111,9 @@ describe 'EditApi' do
   # Rotate an image any number of degrees
   # Rotates an image by an arbitrary number of degrees
   # @param degrees Degrees to rotate the image; values range from 0.0 to 360.0.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'edit_rotate test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

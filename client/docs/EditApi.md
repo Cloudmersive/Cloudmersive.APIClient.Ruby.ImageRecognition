@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
-[**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
-[**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
+[**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
+[**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
 [**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
@@ -185,9 +185,9 @@ Name | Type | Description  | Notes
 
 
 # **edit_draw_polygon**
-> Object edit_draw_polygon(request)
+> String edit_draw_polygon(request)
 
-Draw polygon onto an image
+Draw a polygon onto an image
 
 Draw one or more polygons, with customized visuals, onto an image
 
@@ -209,7 +209,7 @@ request = CloudmersiveImageRecognitionApiClient::DrawPolygonRequest.new # DrawPo
 
 
 begin
-  #Draw polygon onto an image
+  #Draw a polygon onto an image
   result = api_instance.edit_draw_polygon(request)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e
@@ -225,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 # **edit_draw_rectangle**
 > String edit_draw_rectangle(request)
 
-Draw rectangle onto an image
+Draw a rectangle onto an image
 
 Draw one or more rectangles, with customized visuals, onto an image
 
@@ -263,7 +263,7 @@ request = CloudmersiveImageRecognitionApiClient::DrawRectangleRequest.new # Draw
 
 
 begin
-  #Draw rectangle onto an image
+  #Draw a rectangle onto an image
   result = api_instance.edit_draw_rectangle(request)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 
 # **edit_rotate**
-> Object edit_rotate(degrees)
+> String edit_rotate(degrees, image_file)
 
 Rotate an image any number of degrees
 
@@ -369,10 +369,12 @@ api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
 degrees = 1.2 # Float | Degrees to rotate the image; values range from 0.0 to 360.0.
 
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
 
 begin
   #Rotate an image any number of degrees
-  result = api_instance.edit_rotate(degrees)
+  result = api_instance.edit_rotate(degrees, image_file)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e
   puts "Exception when calling EditApi->edit_rotate: #{e}"
@@ -384,10 +386,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **degrees** | **Float**| Degrees to rotate the image; values range from 0.0 to 360.0. | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -395,7 +398,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 
