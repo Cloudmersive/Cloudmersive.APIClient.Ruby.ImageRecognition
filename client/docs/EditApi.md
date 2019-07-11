@@ -7,8 +7,10 @@ Method | HTTP request | Description
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
+[**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
 # **edit_auto_orient**
@@ -182,6 +184,60 @@ Name | Type | Description  | Notes
 
 
 
+# **edit_draw_polygon**
+> Object edit_draw_polygon(request)
+
+Draw polygon onto an image
+
+Draw one or more polygons, with customized visuals, onto an image
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+request = CloudmersiveImageRecognitionApiClient::DrawPolygonRequest.new # DrawPolygonRequest | 
+
+
+begin
+  #Draw polygon onto an image
+  result = api_instance.edit_draw_polygon(request)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_draw_polygon: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
+ - **Accept**: image/png
+
+
+
 # **edit_draw_rectangle**
 > String edit_draw_rectangle(request)
 
@@ -287,6 +343,60 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: image/png
+
+
+
+# **edit_rotate**
+> Object edit_rotate(degrees)
+
+Rotate an image any number of degrees
+
+Rotates an image by an arbitrary number of degrees
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+degrees = 1.2 # Float | Degrees to rotate the image; values range from 0.0 to 360.0.
+
+
+begin
+  #Rotate an image any number of degrees
+  result = api_instance.edit_rotate(degrees)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_rotate: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **degrees** | **Float**| Degrees to rotate the image; values range from 0.0 to 360.0. | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
 
 
 

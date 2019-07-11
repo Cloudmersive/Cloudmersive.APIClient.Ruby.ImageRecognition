@@ -207,6 +207,61 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
 
+    # Draw polygon onto an image
+    # Draw one or more polygons, with customized visuals, onto an image
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def edit_draw_polygon(request, opts = {})
+      data, _status_code, _headers = edit_draw_polygon_with_http_info(request, opts)
+      return data
+    end
+
+    # Draw polygon onto an image
+    # Draw one or more polygons, with customized visuals, onto an image
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def edit_draw_polygon_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditApi.edit_draw_polygon ..."
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling EditApi.edit_draw_polygon"
+      end
+      # resource path
+      local_var_path = "/image/edit/draw/polygon"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_draw_polygon\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Draw rectangle onto an image
     # Draw one or more rectangles, with customized visuals, onto an image
     # @param request 
@@ -313,6 +368,59 @@ module CloudmersiveImageRecognitionApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditApi#edit_draw_text\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Rotate an image any number of degrees
+    # Rotates an image by an arbitrary number of degrees
+    # @param degrees Degrees to rotate the image; values range from 0.0 to 360.0.
+    # @param [Hash] opts the optional parameters
+    # @return [Object]
+    def edit_rotate(degrees, opts = {})
+      data, _status_code, _headers = edit_rotate_with_http_info(degrees, opts)
+      return data
+    end
+
+    # Rotate an image any number of degrees
+    # Rotates an image by an arbitrary number of degrees
+    # @param degrees Degrees to rotate the image; values range from 0.0 to 360.0.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
+    def edit_rotate_with_http_info(degrees, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditApi.edit_rotate ..."
+      end
+      # verify the required parameter 'degrees' is set
+      if @api_client.config.client_side_validation && degrees.nil?
+        fail ArgumentError, "Missing the required parameter 'degrees' when calling EditApi.edit_rotate"
+      end
+      # resource path
+      local_var_path = "/image/edit/rotate/{degrees}/angle".sub('{' + 'degrees' + '}', degrees.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Object')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_rotate\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
