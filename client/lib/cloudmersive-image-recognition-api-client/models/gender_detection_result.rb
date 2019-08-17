@@ -13,37 +13,33 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # A person identified in an image age classification operation
-  class PersonWithAge
-    # Location and other information about the person's face corresponding to this age classification
-    attr_accessor :face_location
+  # Result from classifying the Gender of people in an image
+  class GenderDetectionResult
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
-    # Confidence level of age classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
-    attr_accessor :age_classification_confidence
+    # People in the image annotated with gender information
+    attr_accessor :person_with_gender
 
-    # The person's age range classification result in years; possible values are \"0-2\", \"4-6\", \"8-13\", \"15-20\", \"25-32\", \"38-43\", \"48-53\", \"60+\"
-    attr_accessor :age_class
-
-    attr_accessor :age
+    # Number of people identified in the image with a gender
+    attr_accessor :people_identified
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'face_location' => :'FaceLocation',
-        :'age_classification_confidence' => :'AgeClassificationConfidence',
-        :'age_class' => :'AgeClass',
-        :'age' => :'Age'
+        :'successful' => :'Successful',
+        :'person_with_gender' => :'PersonWithGender',
+        :'people_identified' => :'PeopleIdentified'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'face_location' => :'Face',
-        :'age_classification_confidence' => :'Float',
-        :'age_class' => :'String',
-        :'age' => :'Float'
+        :'successful' => :'BOOLEAN',
+        :'person_with_gender' => :'Array<PersonWithGender>',
+        :'people_identified' => :'Integer'
       }
     end
 
@@ -55,20 +51,18 @@ module CloudmersiveImageRecognitionApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'FaceLocation')
-        self.face_location = attributes[:'FaceLocation']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'AgeClassificationConfidence')
-        self.age_classification_confidence = attributes[:'AgeClassificationConfidence']
+      if attributes.has_key?(:'PersonWithGender')
+        if (value = attributes[:'PersonWithGender']).is_a?(Array)
+          self.person_with_gender = value
+        end
       end
 
-      if attributes.has_key?(:'AgeClass')
-        self.age_class = attributes[:'AgeClass']
-      end
-
-      if attributes.has_key?(:'Age')
-        self.age = attributes[:'Age']
+      if attributes.has_key?(:'PeopleIdentified')
+        self.people_identified = attributes[:'PeopleIdentified']
       end
 
     end
@@ -91,10 +85,9 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          face_location == o.face_location &&
-          age_classification_confidence == o.age_classification_confidence &&
-          age_class == o.age_class &&
-          age == o.age
+          successful == o.successful &&
+          person_with_gender == o.person_with_gender &&
+          people_identified == o.people_identified
     end
 
     # @see the `==` method
@@ -106,7 +99,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [face_location, age_classification_confidence, age_class, age].hash
+      [successful, person_with_gender, people_identified].hash
     end
 
     # Builds the object from hash

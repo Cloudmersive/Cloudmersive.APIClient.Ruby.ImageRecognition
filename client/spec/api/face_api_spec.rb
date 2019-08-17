@@ -81,6 +81,18 @@ describe 'FaceApi' do
     end
   end
 
+  # unit tests for face_detect_gender
+  # Detect the gender of people in an image
+  # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [GenderDetectionResult]
+  describe 'face_detect_gender test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for face_locate
   # Find faces in an image
   # Locate the positions of all faces in an image

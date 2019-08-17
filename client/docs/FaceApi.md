@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**face_crop_first**](FaceApi.md#face_crop_first) | **POST** /image/face/crop/first | Crop image to face (square)
 [**face_crop_first_round**](FaceApi.md#face_crop_first_round) | **POST** /image/face/crop/first/round | Crop image to face (round)
 [**face_detect_age**](FaceApi.md#face_detect_age) | **POST** /image/face/detect-age | Detect the age of people in an image
+[**face_detect_gender**](FaceApi.md#face_detect_gender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 [**face_locate**](FaceApi.md#face_locate) | **POST** /image/face/locate | Find faces in an image
 [**face_locate_with_landmarks**](FaceApi.md#face_locate_with_landmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 
@@ -219,6 +220,60 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgeDetectionResult**](AgeDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **face_detect_gender**
+> GenderDetectionResult face_detect_gender(image_file)
+
+Detect the gender of people in an image
+
+Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Detect the gender of people in an image
+  result = api_instance.face_detect_gender(image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling FaceApi->face_detect_gender: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+[**GenderDetectionResult**](GenderDetectionResult.md)
 
 ### Authorization
 
