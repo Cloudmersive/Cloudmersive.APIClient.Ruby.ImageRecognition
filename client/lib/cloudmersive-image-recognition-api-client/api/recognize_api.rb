@@ -305,20 +305,26 @@ module CloudmersiveImageRecognitionApiClient
 
     # Detect large text in a photo
     # Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [TextDetectionResult]
-    def recognize_detect_text_large(opts = {})
-      data, _status_code, _headers = recognize_detect_text_large_with_http_info(opts)
+    def recognize_detect_text_large(image_file, opts = {})
+      data, _status_code, _headers = recognize_detect_text_large_with_http_info(image_file, opts)
       return data
     end
 
     # Detect large text in a photo
     # Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [Array<(TextDetectionResult, Fixnum, Hash)>] TextDetectionResult data, response status code and response headers
-    def recognize_detect_text_large_with_http_info(opts = {})
+    def recognize_detect_text_large_with_http_info(image_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: RecognizeApi.recognize_detect_text_large ..."
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling RecognizeApi.recognize_detect_text_large"
       end
       # resource path
       local_var_path = "/image/recognize/detect-text/large"
@@ -330,9 +336,12 @@ module CloudmersiveImageRecognitionApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
+      form_params["imageFile"] = image_file
 
       # http body (model)
       post_body = nil

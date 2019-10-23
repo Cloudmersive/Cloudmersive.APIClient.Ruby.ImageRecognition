@@ -15,24 +15,6 @@ require 'date'
 module CloudmersiveImageRecognitionApiClient
   # Location of one face in an image
   class FaceWithLandmarks
-    attr_accessor :left_eyebrow
-
-    attr_accessor :right_eyebrow
-
-    attr_accessor :left_eye
-
-    attr_accessor :right_eye
-
-    attr_accessor :bottom_and_sides_of_face
-
-    attr_accessor :nose_bridge
-
-    attr_accessor :nose_bottom
-
-    attr_accessor :lips_inner_outline
-
-    attr_accessor :lips_outer_outline
-
     # X coordinate of the left side of the face
     attr_accessor :left_x
 
@@ -45,10 +27,41 @@ module CloudmersiveImageRecognitionApiClient
     # Y coordinate of the bottom side of the face
     attr_accessor :bottom_y
 
+    # Point locations of the left eyebrow (the eyebrow cloesest to the left side of the picture)
+    attr_accessor :left_eyebrow
+
+    # Point locations of the right eyebrow (the eyebrow cloesest to the right side of the picture)
+    attr_accessor :right_eyebrow
+
+    # Point locations of the left eye (the eye closest to the left side of the picture)
+    attr_accessor :left_eye
+
+    # Point locations of the right eye (the eye closest to the right side of the picture)
+    attr_accessor :right_eye
+
+    # Point locations of the bottom and sides of the face (cheeks and chin)
+    attr_accessor :bottom_and_sides_of_face
+
+    # Point locations of the nose bridge (the vertical portion of the nose)
+    attr_accessor :nose_bridge
+
+    # Point locations of the bottom (nostrils) of the nose
+    attr_accessor :nose_bottom
+
+    # Point locations of the inner outline of the lips
+    attr_accessor :lips_inner_outline
+
+    # Point locations of the outer outline of the lips
+    attr_accessor :lips_outer_outline
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'left_x' => :'LeftX',
+        :'top_y' => :'TopY',
+        :'right_x' => :'RightX',
+        :'bottom_y' => :'BottomY',
         :'left_eyebrow' => :'LeftEyebrow',
         :'right_eyebrow' => :'RightEyebrow',
         :'left_eye' => :'LeftEye',
@@ -57,17 +70,17 @@ module CloudmersiveImageRecognitionApiClient
         :'nose_bridge' => :'NoseBridge',
         :'nose_bottom' => :'NoseBottom',
         :'lips_inner_outline' => :'LipsInnerOutline',
-        :'lips_outer_outline' => :'LipsOuterOutline',
-        :'left_x' => :'LeftX',
-        :'top_y' => :'TopY',
-        :'right_x' => :'RightX',
-        :'bottom_y' => :'BottomY'
+        :'lips_outer_outline' => :'LipsOuterOutline'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'left_x' => :'Integer',
+        :'top_y' => :'Integer',
+        :'right_x' => :'Integer',
+        :'bottom_y' => :'Integer',
         :'left_eyebrow' => :'Array<FacePoint>',
         :'right_eyebrow' => :'Array<FacePoint>',
         :'left_eye' => :'Array<FacePoint>',
@@ -76,11 +89,7 @@ module CloudmersiveImageRecognitionApiClient
         :'nose_bridge' => :'Array<FacePoint>',
         :'nose_bottom' => :'Array<FacePoint>',
         :'lips_inner_outline' => :'Array<FacePoint>',
-        :'lips_outer_outline' => :'Array<FacePoint>',
-        :'left_x' => :'Integer',
-        :'top_y' => :'Integer',
-        :'right_x' => :'Integer',
-        :'bottom_y' => :'Integer'
+        :'lips_outer_outline' => :'Array<FacePoint>'
       }
     end
 
@@ -91,6 +100,22 @@ module CloudmersiveImageRecognitionApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'LeftX')
+        self.left_x = attributes[:'LeftX']
+      end
+
+      if attributes.has_key?(:'TopY')
+        self.top_y = attributes[:'TopY']
+      end
+
+      if attributes.has_key?(:'RightX')
+        self.right_x = attributes[:'RightX']
+      end
+
+      if attributes.has_key?(:'BottomY')
+        self.bottom_y = attributes[:'BottomY']
+      end
 
       if attributes.has_key?(:'LeftEyebrow')
         if (value = attributes[:'LeftEyebrow']).is_a?(Array)
@@ -146,22 +171,6 @@ module CloudmersiveImageRecognitionApiClient
         end
       end
 
-      if attributes.has_key?(:'LeftX')
-        self.left_x = attributes[:'LeftX']
-      end
-
-      if attributes.has_key?(:'TopY')
-        self.top_y = attributes[:'TopY']
-      end
-
-      if attributes.has_key?(:'RightX')
-        self.right_x = attributes[:'RightX']
-      end
-
-      if attributes.has_key?(:'BottomY')
-        self.bottom_y = attributes[:'BottomY']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -182,6 +191,10 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          left_x == o.left_x &&
+          top_y == o.top_y &&
+          right_x == o.right_x &&
+          bottom_y == o.bottom_y &&
           left_eyebrow == o.left_eyebrow &&
           right_eyebrow == o.right_eyebrow &&
           left_eye == o.left_eye &&
@@ -190,11 +203,7 @@ module CloudmersiveImageRecognitionApiClient
           nose_bridge == o.nose_bridge &&
           nose_bottom == o.nose_bottom &&
           lips_inner_outline == o.lips_inner_outline &&
-          lips_outer_outline == o.lips_outer_outline &&
-          left_x == o.left_x &&
-          top_y == o.top_y &&
-          right_x == o.right_x &&
-          bottom_y == o.bottom_y
+          lips_outer_outline == o.lips_outer_outline
     end
 
     # @see the `==` method
@@ -206,7 +215,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [left_eyebrow, right_eyebrow, left_eye, right_eye, bottom_and_sides_of_face, nose_bridge, nose_bottom, lips_inner_outline, lips_outer_outline, left_x, top_y, right_x, bottom_y].hash
+      [left_x, top_y, right_x, bottom_y, left_eyebrow, right_eyebrow, left_eye, right_eye, bottom_and_sides_of_face, nose_bridge, nose_bottom, lips_inner_outline, lips_outer_outline].hash
     end
 
     # Builds the object from hash

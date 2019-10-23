@@ -288,7 +288,7 @@ Name | Type | Description  | Notes
 
 
 # **recognize_detect_text_large**
-> TextDetectionResult recognize_detect_text_large
+> TextDetectionResult recognize_detect_text_large(image_file)
 
 Detect large text in a photo
 
@@ -308,9 +308,12 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
 begin
   #Detect large text in a photo
-  result = api_instance.recognize_detect_text_large
+  result = api_instance.recognize_detect_text_large(image_file)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e
   puts "Exception when calling RecognizeApi->recognize_detect_text_large: #{e}"
@@ -318,7 +321,10 @@ end
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
@@ -330,7 +336,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 

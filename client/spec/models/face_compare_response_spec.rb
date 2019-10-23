@@ -32,12 +32,6 @@ describe 'FaceCompareResponse' do
       expect(@instance).to be_instance_of(CloudmersiveImageRecognitionApiClient::FaceCompareResponse)
     end
   end
-  describe 'test attribute "error_details"' do
-    it 'should work' do
-       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
   describe 'test attribute "successful"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -51,6 +45,12 @@ describe 'FaceCompareResponse' do
   end
 
   describe 'test attribute "face_count"' do
+    it 'should work' do
+       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  describe 'test attribute "error_details"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

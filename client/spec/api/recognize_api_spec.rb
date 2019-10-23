@@ -96,6 +96,7 @@ describe 'RecognizeApi' do
   # unit tests for recognize_detect_text_large
   # Detect large text in a photo
   # Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
   # @return [TextDetectionResult]
   describe 'recognize_detect_text_large test' do

@@ -13,53 +13,28 @@ Swagger Codegen version: unset
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # License plate found in the image
-  class DetectedLicensePlate
-    # Text from the license plate, highest-confidence result
-    attr_accessor :license_plate_text_best_match
+  # Result of performing a get dominant color operation
+  class DominantColorResult
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
-    # Alternate text from the license plate, based on second-highest-confidence result
-    attr_accessor :license_plate_text_runner_up
-
-    # X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)
-    attr_accessor :location_x
-
-    # Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)
-    attr_accessor :location_y
-
-    # Width of the license plate's location in pixels
-    attr_accessor :width
-
-    # Height of the license plate's location in pixels
-    attr_accessor :height
-
-    # Confidence score on a range of 0.0 - 1.0 of the accuracy of the detected license plate, with higher scores being better; values about 0.75 are high confidence
-    attr_accessor :license_plate_recognition_confidence_level
+    # Dominant colors in the image, in order where most dominant color is in the first index position (0), the second most-dominant color is in index position 1 and so on
+    attr_accessor :dominant_colors
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'license_plate_text_best_match' => :'LicensePlateText_BestMatch',
-        :'license_plate_text_runner_up' => :'LicensePlateText_RunnerUp',
-        :'location_x' => :'LocationX',
-        :'location_y' => :'LocationY',
-        :'width' => :'Width',
-        :'height' => :'Height',
-        :'license_plate_recognition_confidence_level' => :'LicensePlateRecognitionConfidenceLevel'
+        :'successful' => :'Successful',
+        :'dominant_colors' => :'DominantColors'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'license_plate_text_best_match' => :'String',
-        :'license_plate_text_runner_up' => :'String',
-        :'location_x' => :'Integer',
-        :'location_y' => :'Integer',
-        :'width' => :'Integer',
-        :'height' => :'Integer',
-        :'license_plate_recognition_confidence_level' => :'Float'
+        :'successful' => :'BOOLEAN',
+        :'dominant_colors' => :'Array<ColorResult>'
       }
     end
 
@@ -71,32 +46,14 @@ module CloudmersiveImageRecognitionApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'LicensePlateText_BestMatch')
-        self.license_plate_text_best_match = attributes[:'LicensePlateText_BestMatch']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'LicensePlateText_RunnerUp')
-        self.license_plate_text_runner_up = attributes[:'LicensePlateText_RunnerUp']
-      end
-
-      if attributes.has_key?(:'LocationX')
-        self.location_x = attributes[:'LocationX']
-      end
-
-      if attributes.has_key?(:'LocationY')
-        self.location_y = attributes[:'LocationY']
-      end
-
-      if attributes.has_key?(:'Width')
-        self.width = attributes[:'Width']
-      end
-
-      if attributes.has_key?(:'Height')
-        self.height = attributes[:'Height']
-      end
-
-      if attributes.has_key?(:'LicensePlateRecognitionConfidenceLevel')
-        self.license_plate_recognition_confidence_level = attributes[:'LicensePlateRecognitionConfidenceLevel']
+      if attributes.has_key?(:'DominantColors')
+        if (value = attributes[:'DominantColors']).is_a?(Array)
+          self.dominant_colors = value
+        end
       end
 
     end
@@ -119,13 +76,8 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          license_plate_text_best_match == o.license_plate_text_best_match &&
-          license_plate_text_runner_up == o.license_plate_text_runner_up &&
-          location_x == o.location_x &&
-          location_y == o.location_y &&
-          width == o.width &&
-          height == o.height &&
-          license_plate_recognition_confidence_level == o.license_plate_recognition_confidence_level
+          successful == o.successful &&
+          dominant_colors == o.dominant_colors
     end
 
     # @see the `==` method
@@ -137,7 +89,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [license_plate_text_best_match, license_plate_text_runner_up, location_x, location_y, width, height, license_plate_recognition_confidence_level].hash
+      [successful, dominant_colors].hash
     end
 
     # Builds the object from hash
