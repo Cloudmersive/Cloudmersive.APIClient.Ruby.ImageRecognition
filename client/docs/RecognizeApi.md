@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**recognize_detect_text_fine**](RecognizeApi.md#recognize_detect_text_fine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 [**recognize_detect_text_large**](RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognize_detect_vehicle_license_plates**](RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
+[**recognize_find_symbol**](RecognizeApi.md#recognize_find_symbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
 
 
 # **recognize_describe**
@@ -383,6 +384,63 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**VehicleLicensePlateDetectionResult**](VehicleLicensePlateDetectionResult.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **recognize_find_symbol**
+> FindSymbolResult recognize_find_symbol(input_image, target_image)
+
+Find the location of a symbol in an image
+
+Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
+
+input_image = File.new("/path/to/file.txt") # File | Image file to search through for the target image.
+
+target_image = File.new("/path/to/file.txt") # File | Image to find in the input image.
+
+
+begin
+  #Find the location of a symbol in an image
+  result = api_instance.recognize_find_symbol(input_image, target_image)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling RecognizeApi->recognize_find_symbol: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **input_image** | **File**| Image file to search through for the target image. | 
+ **target_image** | **File**| Image to find in the input image. | 
+
+### Return type
+
+[**FindSymbolResult**](FindSymbolResult.md)
 
 ### Authorization
 

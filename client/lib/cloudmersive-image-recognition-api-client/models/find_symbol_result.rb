@@ -13,28 +13,43 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # Specific recognition outcome
-  class RecognitionOutcome
-    # Scores closer to 1 are better than scores closer to 0
-    attr_accessor :confidence_score
+  # Result of a find symbol operation on an input image
+  class FindSymbolResult
+    # True if successful, false otherwise
+    attr_accessor :successful
 
-    # English language description of the image
-    attr_accessor :description
+    # X location of the left edge of the found location in pixels
+    attr_accessor :x_left
+
+    # Y location of the top edge of the found location in pixels
+    attr_accessor :y_top
+
+    # Width of the found location in pixels
+    attr_accessor :width
+
+    # Height of the found location in pixels
+    attr_accessor :height
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'confidence_score' => :'ConfidenceScore',
-        :'description' => :'Description'
+        :'successful' => :'Successful',
+        :'x_left' => :'XLeft',
+        :'y_top' => :'YTop',
+        :'width' => :'Width',
+        :'height' => :'Height'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'confidence_score' => :'Float',
-        :'description' => :'String'
+        :'successful' => :'BOOLEAN',
+        :'x_left' => :'Integer',
+        :'y_top' => :'Integer',
+        :'width' => :'Integer',
+        :'height' => :'Integer'
       }
     end
 
@@ -46,12 +61,24 @@ module CloudmersiveImageRecognitionApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'ConfidenceScore')
-        self.confidence_score = attributes[:'ConfidenceScore']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Description')
-        self.description = attributes[:'Description']
+      if attributes.has_key?(:'XLeft')
+        self.x_left = attributes[:'XLeft']
+      end
+
+      if attributes.has_key?(:'YTop')
+        self.y_top = attributes[:'YTop']
+      end
+
+      if attributes.has_key?(:'Width')
+        self.width = attributes[:'Width']
+      end
+
+      if attributes.has_key?(:'Height')
+        self.height = attributes[:'Height']
       end
 
     end
@@ -74,8 +101,11 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          confidence_score == o.confidence_score &&
-          description == o.description
+          successful == o.successful &&
+          x_left == o.x_left &&
+          y_top == o.y_top &&
+          width == o.width &&
+          height == o.height
     end
 
     # @see the `==` method
@@ -87,7 +117,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [confidence_score, description].hash
+      [successful, x_left, y_top, width, height].hash
     end
 
     # Builds the object from hash

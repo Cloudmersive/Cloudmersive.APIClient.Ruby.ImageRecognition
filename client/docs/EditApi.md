@@ -7,9 +7,11 @@ Method | HTTP request | Description
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**edit_crop_rectangle**](EditApi.md#edit_crop_rectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
+[**edit_drop_shadow**](EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -184,6 +186,72 @@ Name | Type | Description  | Notes
 
 
 
+# **edit_crop_rectangle**
+> String edit_crop_rectangle(left, top, width, height, image_file)
+
+Crop an image to a rectangular area
+
+Crop an image to a target rectangular area
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+left = 56 # Integer | The left edge of the rectangular crop area in pixels (X).
+
+top = 56 # Integer | The top edge of the rectangular crop area in pixels (Y).
+
+width = 56 # Integer | The width of the rectangular crop area in pixels.
+
+height = 56 # Integer | The height of the rectangular crop area in pixels.
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Crop an image to a rectangular area
+  result = api_instance.edit_crop_rectangle(left, top, width, height, image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_crop_rectangle: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **Integer**| The left edge of the rectangular crop area in pixels (X). | 
+ **top** | **Integer**| The top edge of the rectangular crop area in pixels (Y). | 
+ **width** | **Integer**| The width of the rectangular crop area in pixels. | 
+ **height** | **Integer**| The height of the rectangular crop area in pixels. | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
 # **edit_draw_polygon**
 > String edit_draw_polygon(request)
 
@@ -343,6 +411,72 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: image/png
+
+
+
+# **edit_drop_shadow**
+> String edit_drop_shadow(x, y, sigma, opacity, image_file)
+
+Add a customizeable drop shadow to an image
+
+Add a customizeable drop shadow to the image
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+x = 56 # Integer | Horizontal (X) offset of the drop shadow
+
+y = 56 # Integer | Vertical (Y) offset of the drop shadow
+
+sigma = 56 # Integer | Sigma (blur distance) of the drop shadow
+
+opacity = 56 # Integer | Opacity of the drop shadow; 0 is 0% and 100 is 100%
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Add a customizeable drop shadow to an image
+  result = api_instance.edit_drop_shadow(x, y, sigma, opacity, image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_drop_shadow: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x** | **Integer**| Horizontal (X) offset of the drop shadow | 
+ **y** | **Integer**| Vertical (Y) offset of the drop shadow | 
+ **sigma** | **Integer**| Sigma (blur distance) of the drop shadow | 
+ **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 
 
