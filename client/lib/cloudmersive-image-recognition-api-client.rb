@@ -52,6 +52,7 @@ require 'cloudmersive-image-recognition-api-client/models/vehicle_license_plate_
 
 # APIs
 require 'cloudmersive-image-recognition-api-client/api/artistic_api'
+require 'cloudmersive-image-recognition-api-client/api/convert_api'
 require 'cloudmersive-image-recognition-api-client/api/edit_api'
 require 'cloudmersive-image-recognition-api-client/api/face_api'
 require 'cloudmersive-image-recognition-api-client/api/filter_api'

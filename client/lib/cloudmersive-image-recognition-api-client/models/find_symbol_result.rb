@@ -18,6 +18,9 @@ module CloudmersiveImageRecognitionApiClient
     # True if successful, false otherwise
     attr_accessor :successful
 
+    # Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good
+    attr_accessor :match_score
+
     # X location of the left edge of the found location in pixels
     attr_accessor :x_left
 
@@ -35,6 +38,7 @@ module CloudmersiveImageRecognitionApiClient
     def self.attribute_map
       {
         :'successful' => :'Successful',
+        :'match_score' => :'MatchScore',
         :'x_left' => :'XLeft',
         :'y_top' => :'YTop',
         :'width' => :'Width',
@@ -46,6 +50,7 @@ module CloudmersiveImageRecognitionApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
+        :'match_score' => :'Float',
         :'x_left' => :'Integer',
         :'y_top' => :'Integer',
         :'width' => :'Integer',
@@ -63,6 +68,10 @@ module CloudmersiveImageRecognitionApiClient
 
       if attributes.has_key?(:'Successful')
         self.successful = attributes[:'Successful']
+      end
+
+      if attributes.has_key?(:'MatchScore')
+        self.match_score = attributes[:'MatchScore']
       end
 
       if attributes.has_key?(:'XLeft')
@@ -102,6 +111,7 @@ module CloudmersiveImageRecognitionApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
+          match_score == o.match_score &&
           x_left == o.x_left &&
           y_top == o.y_top &&
           width == o.width &&
@@ -117,7 +127,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, x_left, y_top, width, height].hash
+      [successful, match_score, x_left, y_top, width, height].hash
     end
 
     # Builds the object from hash

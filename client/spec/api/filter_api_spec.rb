@@ -116,8 +116,9 @@ describe 'FilterApi' do
   # Posterize the image by reducing distinct colors
   # Reduce the unique number of colors in the image to the specified level
   # @param levels Number of unique colors to retain in the output image
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
-  # @return [Object]
+  # @return [String]
   describe 'filter_posterize test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

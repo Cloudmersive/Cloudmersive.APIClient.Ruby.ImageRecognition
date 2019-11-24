@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 
 
 # **filter_posterize**
-> Object filter_posterize(levels)
+> String filter_posterize(levels, image_file)
 
 Posterize the image by reducing distinct colors
 
@@ -385,10 +385,12 @@ api_instance = CloudmersiveImageRecognitionApiClient::FilterApi.new
 
 levels = 56 # Integer | Number of unique colors to retain in the output image
 
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
 
 begin
   #Posterize the image by reducing distinct colors
-  result = api_instance.filter_posterize(levels)
+  result = api_instance.filter_posterize(levels, image_file)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e
   puts "Exception when calling FilterApi->filter_posterize: #{e}"
@@ -400,10 +402,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **levels** | **Integer**| Number of unique colors to retain in the output image | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
 
-**Object**
+**String**
 
 ### Authorization
 
@@ -411,7 +414,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 

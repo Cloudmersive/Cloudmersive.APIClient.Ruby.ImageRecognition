@@ -407,25 +407,31 @@ module CloudmersiveImageRecognitionApiClient
     # Posterize the image by reducing distinct colors
     # Reduce the unique number of colors in the image to the specified level
     # @param levels Number of unique colors to retain in the output image
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
-    # @return [Object]
-    def filter_posterize(levels, opts = {})
-      data, _status_code, _headers = filter_posterize_with_http_info(levels, opts)
+    # @return [String]
+    def filter_posterize(levels, image_file, opts = {})
+      data, _status_code, _headers = filter_posterize_with_http_info(levels, image_file, opts)
       return data
     end
 
     # Posterize the image by reducing distinct colors
     # Reduce the unique number of colors in the image to the specified level
     # @param levels Number of unique colors to retain in the output image
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Object, Fixnum, Hash)>] Object data, response status code and response headers
-    def filter_posterize_with_http_info(levels, opts = {})
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def filter_posterize_with_http_info(levels, image_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: FilterApi.filter_posterize ..."
       end
       # verify the required parameter 'levels' is set
       if @api_client.config.client_side_validation && levels.nil?
         fail ArgumentError, "Missing the required parameter 'levels' when calling FilterApi.filter_posterize"
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling FilterApi.filter_posterize"
       end
       # resource path
       local_var_path = "/image/filter/posterize"
@@ -438,9 +444,12 @@ module CloudmersiveImageRecognitionApiClient
       header_params = {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
       # form parameters
       form_params = {}
+      form_params["imageFile"] = image_file
 
       # http body (model)
       post_body = nil
@@ -451,7 +460,7 @@ module CloudmersiveImageRecognitionApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Object')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FilterApi#filter_posterize\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
