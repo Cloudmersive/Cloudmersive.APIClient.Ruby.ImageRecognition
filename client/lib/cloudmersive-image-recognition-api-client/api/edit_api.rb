@@ -454,8 +454,8 @@ module CloudmersiveImageRecognitionApiClient
 
     # Add a customizeable drop shadow to an image
     # Add a customizeable drop shadow to the image
-    # @param x Horizontal (X) offset of the drop shadow
-    # @param y Vertical (Y) offset of the drop shadow
+    # @param x 
+    # @param y 
     # @param sigma Sigma (blur distance) of the drop shadow
     # @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -468,8 +468,8 @@ module CloudmersiveImageRecognitionApiClient
 
     # Add a customizeable drop shadow to an image
     # Add a customizeable drop shadow to the image
-    # @param x Horizontal (X) offset of the drop shadow
-    # @param y Vertical (Y) offset of the drop shadow
+    # @param x 
+    # @param y 
     # @param sigma Sigma (blur distance) of the drop shadow
     # @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -500,7 +500,7 @@ module CloudmersiveImageRecognitionApiClient
         fail ArgumentError, "Missing the required parameter 'image_file' when calling EditApi.edit_drop_shadow"
       end
       # resource path
-      local_var_path = "/image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity}".sub('{' + 'x' + '}', x.to_s).sub('{' + 'y' + '}', y.to_s).sub('{' + 'sigma' + '}', sigma.to_s).sub('{' + 'opacity' + '}', opacity.to_s)
+      local_var_path = "/image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity}".sub('{' + 'X' + '}', x.to_s).sub('{' + 'Y' + '}', y.to_s).sub('{' + 'sigma' + '}', sigma.to_s).sub('{' + 'opacity' + '}', opacity.to_s)
 
       # query parameters
       query_params = {}

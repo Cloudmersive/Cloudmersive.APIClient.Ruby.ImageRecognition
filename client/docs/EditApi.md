@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
-[**edit_drop_shadow**](EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+[**edit_drop_shadow**](EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -435,9 +435,9 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-x = 56 # Integer | Horizontal (X) offset of the drop shadow
+x = 56 # Integer | 
 
-y = 56 # Integer | Vertical (Y) offset of the drop shadow
+y = 56 # Integer | 
 
 sigma = 56 # Integer | Sigma (blur distance) of the drop shadow
 
@@ -459,8 +459,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x** | **Integer**| Horizontal (X) offset of the drop shadow | 
- **y** | **Integer**| Vertical (Y) offset of the drop shadow | 
+ **x** | **Integer**|  | 
+ **y** | **Integer**|  | 
  **sigma** | **Integer**| Sigma (blur distance) of the drop shadow | 
  **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
  **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 

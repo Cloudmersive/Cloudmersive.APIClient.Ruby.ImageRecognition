@@ -126,8 +126,8 @@ describe 'EditApi' do
   # unit tests for edit_drop_shadow
   # Add a customizeable drop shadow to an image
   # Add a customizeable drop shadow to the image
-  # @param x Horizontal (X) offset of the drop shadow
-  # @param y Vertical (Y) offset of the drop shadow
+  # @param x 
+  # @param y 
   # @param sigma Sigma (blur distance) of the drop shadow
   # @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
