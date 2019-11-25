@@ -40,6 +40,8 @@ require 'cloudmersive-image-recognition-api-client/models/fine_text_detection_re
 require 'cloudmersive-image-recognition-api-client/models/fine_text_item'
 require 'cloudmersive-image-recognition-api-client/models/gender_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/image_description_response'
+require 'cloudmersive-image-recognition-api-client/models/image_metadata'
+require 'cloudmersive-image-recognition-api-client/models/image_metadata_exif_value'
 require 'cloudmersive-image-recognition-api-client/models/nsfw_result'
 require 'cloudmersive-image-recognition-api-client/models/object_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/person_with_age'

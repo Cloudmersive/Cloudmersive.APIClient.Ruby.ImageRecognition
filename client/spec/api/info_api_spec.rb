@@ -44,4 +44,16 @@ describe 'InfoApi' do
     end
   end
 
+  # unit tests for info_get_metadata
+  # Returns the image metadata, including EXIF and resolution
+  # Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [ImageMetadata]
+  describe 'info_get_metadata test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end
