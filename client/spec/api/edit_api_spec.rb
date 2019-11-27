@@ -139,6 +139,18 @@ describe 'EditApi' do
     end
   end
 
+  # unit tests for edit_remove_transparency
+  # Remove transparency from the image
+  # Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_remove_transparency test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_rotate
   # Rotate an image any number of degrees
   # Rotates an image by an arbitrary number of degrees
