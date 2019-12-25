@@ -45,7 +45,7 @@ describe 'InfoApi' do
   end
 
   # unit tests for info_get_metadata
-  # Returns the image metadata, including EXIF and resolution
+  # Returns the image metadata including EXIF and resolution
   # Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters

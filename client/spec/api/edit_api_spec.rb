@@ -90,7 +90,7 @@ describe 'EditApi' do
   # unit tests for edit_draw_polygon
   # Draw a polygon onto an image
   # Draw one or more polygons, with customized visuals, onto an image
-  # @param request 
+  # @param request Polygon drawing request parameters
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_draw_polygon test' do
@@ -102,7 +102,7 @@ describe 'EditApi' do
   # unit tests for edit_draw_rectangle
   # Draw a rectangle onto an image
   # Draw one or more rectangles, with customized visuals, onto an image
-  # @param request 
+  # @param request Draw rectangle parameters
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_draw_rectangle test' do
@@ -114,7 +114,7 @@ describe 'EditApi' do
   # unit tests for edit_draw_text
   # Draw text onto an image
   # Draw one or more pieces of text, with customized visuals, onto an image
-  # @param request 
+  # @param request Draw text parameters
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_draw_text test' do
@@ -126,8 +126,8 @@ describe 'EditApi' do
   # unit tests for edit_drop_shadow
   # Add a customizeable drop shadow to an image
   # Add a customizeable drop shadow to the image
-  # @param x 
-  # @param y 
+  # @param x Horizontal (X) offset of the drop shadow
+  # @param y Vertical (Y) offset of the drop shadow
   # @param sigma Sigma (blur distance) of the drop shadow
   # @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.

@@ -76,7 +76,7 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
 
-    # Despeckle (remove point noise) from the image
+    # Despeckle to remove point noise from the image
     # Remove point noise / despeckle the input image
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
@@ -86,7 +86,7 @@ module CloudmersiveImageRecognitionApiClient
       return data
     end
 
-    # Despeckle (remove point noise) from the image
+    # Despeckle to remove point noise from the image
     # Remove point noise / despeckle the input image
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters

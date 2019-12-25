@@ -33,7 +33,7 @@ describe 'NsfwApi' do
   end
 
   # unit tests for nsfw_classify
-  # Not safe for work (NSFW) racy content classification
+  # Not safe for work NSFW racy content classification
   # Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters

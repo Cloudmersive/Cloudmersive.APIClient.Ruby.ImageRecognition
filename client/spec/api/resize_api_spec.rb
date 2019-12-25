@@ -49,8 +49,8 @@ describe 'ResizeApi' do
   # unit tests for resize_resize_simple
   # Resize an image
   # Resize an image to a specific width and specific height
-  # @param width 
-  # @param height 
+  # @param width Width of the output image - final image will be exactly this width
+  # @param height Height of the output image - final image will be exactly this height
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
   # @return [String]

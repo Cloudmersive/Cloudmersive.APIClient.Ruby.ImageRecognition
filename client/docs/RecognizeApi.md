@@ -6,8 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**recognize_describe**](RecognizeApi.md#recognize_describe) | **POST** /image/recognize/describe | Describe an image in natural language
 [**recognize_detect_and_unskew_document**](RecognizeApi.md#recognize_detect_and_unskew_document) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-[**recognize_detect_objects**](RecognizeApi.md#recognize_detect_objects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-[**recognize_detect_people**](RecognizeApi.md#recognize_detect_people) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+[**recognize_detect_objects**](RecognizeApi.md#recognize_detect_objects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
+[**recognize_detect_people**](RecognizeApi.md#recognize_detect_people) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 [**recognize_detect_text_fine**](RecognizeApi.md#recognize_detect_text_fine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 [**recognize_detect_text_large**](RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognize_detect_vehicle_license_plates**](RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
@@ -129,7 +129,7 @@ Name | Type | Description  | Notes
 # **recognize_detect_objects**
 > ObjectDetectionResult recognize_detect_objects(image_file)
 
-Detect objects, including types and locations, in an image
+Detect objects including types and locations in an image
 
 Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
 
@@ -151,7 +151,7 @@ image_file = File.new("/path/to/file.txt") # File | Image file to perform the op
 
 
 begin
-  #Detect objects, including types and locations, in an image
+  #Detect objects including types and locations in an image
   result = api_instance.recognize_detect_objects(image_file)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 # **recognize_detect_people**
 > ObjectDetectionResult recognize_detect_people(image_file)
 
-Detect people, including locations, in an image
+Detect people including locations in an image
 
 Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
 
@@ -205,7 +205,7 @@ image_file = File.new("/path/to/file.txt") # File | Image file to perform the op
 
 
 begin
-  #Detect people, including locations, in an image
+  #Detect people including locations in an image
   result = api_instance.recognize_detect_people(image_file)
   p result
 rescue CloudmersiveImageRecognitionApiClient::ApiError => e

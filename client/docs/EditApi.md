@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
@@ -274,7 +274,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-request = CloudmersiveImageRecognitionApiClient::DrawPolygonRequest.new # DrawPolygonRequest | 
+request = CloudmersiveImageRecognitionApiClient::DrawPolygonRequest.new # DrawPolygonRequest | Polygon drawing request parameters
 
 
 begin
@@ -290,7 +290,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)|  | 
+ **request** | [**DrawPolygonRequest**](DrawPolygonRequest.md)| Polygon drawing request parameters | 
 
 ### Return type
 
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
@@ -328,7 +328,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-request = CloudmersiveImageRecognitionApiClient::DrawRectangleRequest.new # DrawRectangleRequest | 
+request = CloudmersiveImageRecognitionApiClient::DrawRectangleRequest.new # DrawRectangleRequest | Draw rectangle parameters
 
 
 begin
@@ -344,7 +344,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)|  | 
+ **request** | [**DrawRectangleRequest**](DrawRectangleRequest.md)| Draw rectangle parameters | 
 
 ### Return type
 
@@ -357,7 +357,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
@@ -382,7 +382,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-request = CloudmersiveImageRecognitionApiClient::DrawTextRequest.new # DrawTextRequest | 
+request = CloudmersiveImageRecognitionApiClient::DrawTextRequest.new # DrawTextRequest | Draw text parameters
 
 
 begin
@@ -398,7 +398,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**DrawTextRequest**](DrawTextRequest.md)|  | 
+ **request** | [**DrawTextRequest**](DrawTextRequest.md)| Draw text parameters | 
 
 ### Return type
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
@@ -436,9 +436,9 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-x = 56 # Integer | 
+x = 56 # Integer | Horizontal (X) offset of the drop shadow
 
-y = 56 # Integer | 
+y = 56 # Integer | Vertical (Y) offset of the drop shadow
 
 sigma = 56 # Integer | Sigma (blur distance) of the drop shadow
 
@@ -460,8 +460,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x** | **Integer**|  | 
- **y** | **Integer**|  | 
+ **x** | **Integer**| Horizontal (X) offset of the drop shadow | 
+ **y** | **Integer**| Vertical (Y) offset of the drop shadow | 
  **sigma** | **Integer**| Sigma (blur distance) of the drop shadow | 
  **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
  **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 

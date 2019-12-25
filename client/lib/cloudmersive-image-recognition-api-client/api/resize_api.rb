@@ -64,7 +64,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -90,8 +90,8 @@ module CloudmersiveImageRecognitionApiClient
 
     # Resize an image
     # Resize an image to a specific width and specific height
-    # @param width 
-    # @param height 
+    # @param width Width of the output image - final image will be exactly this width
+    # @param height Height of the output image - final image will be exactly this height
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [String]
@@ -102,8 +102,8 @@ module CloudmersiveImageRecognitionApiClient
 
     # Resize an image
     # Resize an image to a specific width and specific height
-    # @param width 
-    # @param height 
+    # @param width Width of the output image - final image will be exactly this width
+    # @param height Height of the output image - final image will be exactly this height
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
@@ -132,7 +132,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 

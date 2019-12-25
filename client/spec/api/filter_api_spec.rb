@@ -45,7 +45,7 @@ describe 'FilterApi' do
   end
 
   # unit tests for filter_despeckle
-  # Despeckle (remove point noise) from the image
+  # Despeckle to remove point noise from the image
   # Remove point noise / despeckle the input image
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters

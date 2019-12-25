@@ -15,8 +15,6 @@ require 'date'
 module CloudmersiveImageRecognitionApiClient
   # Results of locating faces in an image
   class FaceLocateResponse
-    attr_accessor :error_details
-
     # True if the operation was successful, false otherwise
     attr_accessor :successful
 
@@ -26,24 +24,27 @@ module CloudmersiveImageRecognitionApiClient
     # Number of faces found in the image
     attr_accessor :face_count
 
+    # Details of any errors that occurred
+    attr_accessor :error_details
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'error_details' => :'ErrorDetails',
         :'successful' => :'Successful',
         :'faces' => :'Faces',
-        :'face_count' => :'FaceCount'
+        :'face_count' => :'FaceCount',
+        :'error_details' => :'ErrorDetails'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'error_details' => :'String',
         :'successful' => :'BOOLEAN',
         :'faces' => :'Array<Face>',
-        :'face_count' => :'Integer'
+        :'face_count' => :'Integer',
+        :'error_details' => :'String'
       }
     end
 
@@ -54,10 +55,6 @@ module CloudmersiveImageRecognitionApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'ErrorDetails')
-        self.error_details = attributes[:'ErrorDetails']
-      end
 
       if attributes.has_key?(:'Successful')
         self.successful = attributes[:'Successful']
@@ -71,6 +68,10 @@ module CloudmersiveImageRecognitionApiClient
 
       if attributes.has_key?(:'FaceCount')
         self.face_count = attributes[:'FaceCount']
+      end
+
+      if attributes.has_key?(:'ErrorDetails')
+        self.error_details = attributes[:'ErrorDetails']
       end
 
     end
@@ -93,10 +94,10 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          error_details == o.error_details &&
           successful == o.successful &&
           faces == o.faces &&
-          face_count == o.face_count
+          face_count == o.face_count &&
+          error_details == o.error_details
     end
 
     # @see the `==` method
@@ -108,7 +109,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [error_details, successful, faces, face_count].hash
+      [successful, faces, face_count, error_details].hash
     end
 
     # Builds the object from hash

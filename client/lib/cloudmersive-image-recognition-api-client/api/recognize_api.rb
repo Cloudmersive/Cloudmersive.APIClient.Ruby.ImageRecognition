@@ -135,7 +135,7 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
 
-    # Detect objects, including types and locations, in an image
+    # Detect objects including types and locations in an image
     # Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
@@ -145,7 +145,7 @@ module CloudmersiveImageRecognitionApiClient
       return data
     end
 
-    # Detect objects, including types and locations, in an image
+    # Detect objects including types and locations in an image
     # Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
@@ -191,7 +191,7 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
 
-    # Detect people, including locations, in an image
+    # Detect people including locations in an image
     # Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
@@ -201,7 +201,7 @@ module CloudmersiveImageRecognitionApiClient
       return data
     end
 
-    # Detect people, including locations, in an image
+    # Detect people including locations in an image
     # Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters

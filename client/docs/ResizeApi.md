@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
@@ -89,9 +89,9 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ResizeApi.new
 
-width = 56 # Integer | 
+width = 56 # Integer | Width of the output image - final image will be exactly this width
 
-height = 56 # Integer | 
+height = 56 # Integer | Height of the output image - final image will be exactly this height
 
 image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
@@ -109,8 +109,8 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **width** | **Integer**|  | 
- **height** | **Integer**|  | 
+ **width** | **Integer**| Width of the output image - final image will be exactly this width | 
+ **height** | **Integer**| Height of the output image - final image will be exactly this height | 
  **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 

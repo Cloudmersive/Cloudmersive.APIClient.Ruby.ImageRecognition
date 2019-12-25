@@ -120,7 +120,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -183,7 +183,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
 
@@ -289,7 +289,7 @@ module CloudmersiveImageRecognitionApiClient
 
     # Draw a polygon onto an image
     # Draw one or more polygons, with customized visuals, onto an image
-    # @param request 
+    # @param request Polygon drawing request parameters
     # @param [Hash] opts the optional parameters
     # @return [String]
     def edit_draw_polygon(request, opts = {})
@@ -299,7 +299,7 @@ module CloudmersiveImageRecognitionApiClient
 
     # Draw a polygon onto an image
     # Draw one or more polygons, with customized visuals, onto an image
-    # @param request 
+    # @param request Polygon drawing request parameters
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_draw_polygon_with_http_info(request, opts = {})
@@ -319,7 +319,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -344,7 +344,7 @@ module CloudmersiveImageRecognitionApiClient
 
     # Draw a rectangle onto an image
     # Draw one or more rectangles, with customized visuals, onto an image
-    # @param request 
+    # @param request Draw rectangle parameters
     # @param [Hash] opts the optional parameters
     # @return [String]
     def edit_draw_rectangle(request, opts = {})
@@ -354,7 +354,7 @@ module CloudmersiveImageRecognitionApiClient
 
     # Draw a rectangle onto an image
     # Draw one or more rectangles, with customized visuals, onto an image
-    # @param request 
+    # @param request Draw rectangle parameters
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_draw_rectangle_with_http_info(request, opts = {})
@@ -374,7 +374,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -399,7 +399,7 @@ module CloudmersiveImageRecognitionApiClient
 
     # Draw text onto an image
     # Draw one or more pieces of text, with customized visuals, onto an image
-    # @param request 
+    # @param request Draw text parameters
     # @param [Hash] opts the optional parameters
     # @return [String]
     def edit_draw_text(request, opts = {})
@@ -409,7 +409,7 @@ module CloudmersiveImageRecognitionApiClient
 
     # Draw text onto an image
     # Draw one or more pieces of text, with customized visuals, onto an image
-    # @param request 
+    # @param request Draw text parameters
     # @param [Hash] opts the optional parameters
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def edit_draw_text_with_http_info(request, opts = {})
@@ -429,7 +429,7 @@ module CloudmersiveImageRecognitionApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -454,8 +454,8 @@ module CloudmersiveImageRecognitionApiClient
 
     # Add a customizeable drop shadow to an image
     # Add a customizeable drop shadow to the image
-    # @param x 
-    # @param y 
+    # @param x Horizontal (X) offset of the drop shadow
+    # @param y Vertical (Y) offset of the drop shadow
     # @param sigma Sigma (blur distance) of the drop shadow
     # @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -468,8 +468,8 @@ module CloudmersiveImageRecognitionApiClient
 
     # Add a customizeable drop shadow to an image
     # Add a customizeable drop shadow to the image
-    # @param x 
-    # @param y 
+    # @param x Horizontal (X) offset of the drop shadow
+    # @param y Vertical (Y) offset of the drop shadow
     # @param sigma Sigma (blur distance) of the drop shadow
     # @param opacity Opacity of the drop shadow; 0 is 0% and 100 is 100%
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.

@@ -18,6 +18,9 @@ module CloudmersiveImageRecognitionApiClient
     # True if the operation was successful, false otherwise
     attr_accessor :successful
 
+    # True if the input image is a valid image file, false otherwise
+    attr_accessor :is_valid_image
+
     # File format of the image
     attr_accessor :file_format
 
@@ -29,6 +32,9 @@ module CloudmersiveImageRecognitionApiClient
 
     # Bits per pixel
     attr_accessor :bit_depth
+
+    # True if the image has transaprency in the form of an alpha channel, false otherwise
+    attr_accessor :has_transparency
 
     # Color space of the image
     attr_accessor :color_space
@@ -44,10 +50,12 @@ module CloudmersiveImageRecognitionApiClient
     def self.attribute_map
       {
         :'successful' => :'Successful',
+        :'is_valid_image' => :'IsValidImage',
         :'file_format' => :'FileFormat',
         :'width' => :'Width',
         :'height' => :'Height',
         :'bit_depth' => :'BitDepth',
+        :'has_transparency' => :'HasTransparency',
         :'color_space' => :'ColorSpace',
         :'exif_profile_name' => :'ExifProfileName',
         :'exif_values' => :'ExifValues'
@@ -58,10 +66,12 @@ module CloudmersiveImageRecognitionApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
+        :'is_valid_image' => :'BOOLEAN',
         :'file_format' => :'String',
         :'width' => :'Integer',
         :'height' => :'Integer',
         :'bit_depth' => :'Integer',
+        :'has_transparency' => :'BOOLEAN',
         :'color_space' => :'String',
         :'exif_profile_name' => :'String',
         :'exif_values' => :'Array<ImageMetadataExifValue>'
@@ -80,6 +90,10 @@ module CloudmersiveImageRecognitionApiClient
         self.successful = attributes[:'Successful']
       end
 
+      if attributes.has_key?(:'IsValidImage')
+        self.is_valid_image = attributes[:'IsValidImage']
+      end
+
       if attributes.has_key?(:'FileFormat')
         self.file_format = attributes[:'FileFormat']
       end
@@ -94,6 +108,10 @@ module CloudmersiveImageRecognitionApiClient
 
       if attributes.has_key?(:'BitDepth')
         self.bit_depth = attributes[:'BitDepth']
+      end
+
+      if attributes.has_key?(:'HasTransparency')
+        self.has_transparency = attributes[:'HasTransparency']
       end
 
       if attributes.has_key?(:'ColorSpace')
@@ -131,10 +149,12 @@ module CloudmersiveImageRecognitionApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
+          is_valid_image == o.is_valid_image &&
           file_format == o.file_format &&
           width == o.width &&
           height == o.height &&
           bit_depth == o.bit_depth &&
+          has_transparency == o.has_transparency &&
           color_space == o.color_space &&
           exif_profile_name == o.exif_profile_name &&
           exif_values == o.exif_values
@@ -149,7 +169,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, file_format, width, height, bit_depth, color_space, exif_profile_name, exif_values].hash
+      [successful, is_valid_image, file_format, width, height, bit_depth, has_transparency, color_space, exif_profile_name, exif_values].hash
     end
 
     # Builds the object from hash
