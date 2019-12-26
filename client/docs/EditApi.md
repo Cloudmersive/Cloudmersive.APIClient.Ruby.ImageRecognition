@@ -12,6 +12,8 @@ Method | HTTP request | Description
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**edit_draw_text**](EditApi.md#edit_draw_text) | **POST** /image/edit/draw/text | Draw text onto an image
 [**edit_drop_shadow**](EditApi.md#edit_drop_shadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+[**edit_invert**](EditApi.md#edit_invert) | **POST** /image/edit/invert | Invert, negate the colors in the image
+[**edit_remove_exif_data**](EditApi.md#edit_remove_exif_data) | **POST** /image/edit/remove-exif | Remove EXIF data from the image
 [**edit_remove_transparency**](EditApi.md#edit_remove_transparency) | **POST** /image/edit/remove-transparency | Remove transparency from the image
 [**edit_rotate**](EditApi.md#edit_rotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
@@ -464,6 +466,114 @@ Name | Type | Description  | Notes
  **y** | **Integer**| Vertical (Y) offset of the drop shadow | 
  **sigma** | **Integer**| Sigma (blur distance) of the drop shadow | 
  **opacity** | **Integer**| Opacity of the drop shadow; 0 is 0% and 100 is 100% | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **edit_invert**
+> String edit_invert(image_file)
+
+Invert, negate the colors in the image
+
+Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Invert, negate the colors in the image
+  result = api_instance.edit_invert(image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_invert: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **edit_remove_exif_data**
+> String edit_remove_exif_data(image_file)
+
+Remove EXIF data from the image
+
+Removes any EXIF data and profiles .
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Remove EXIF data from the image
+  result = api_instance.edit_remove_exif_data(image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_remove_exif_data: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type

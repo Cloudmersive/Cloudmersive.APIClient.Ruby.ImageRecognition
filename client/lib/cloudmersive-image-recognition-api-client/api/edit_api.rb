@@ -532,6 +532,118 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
 
+    # Invert, negate the colors in the image
+    # Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_invert(image_file, opts = {})
+      data, _status_code, _headers = edit_invert_with_http_info(image_file, opts)
+      return data
+    end
+
+    # Invert, negate the colors in the image
+    # Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_invert_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditApi.edit_invert ..."
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling EditApi.edit_invert"
+      end
+      # resource path
+      local_var_path = "/image/edit/invert"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["imageFile"] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_invert\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Remove EXIF data from the image
+    # Removes any EXIF data and profiles .
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_remove_exif_data(image_file, opts = {})
+      data, _status_code, _headers = edit_remove_exif_data_with_http_info(image_file, opts)
+      return data
+    end
+
+    # Remove EXIF data from the image
+    # Removes any EXIF data and profiles .
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_remove_exif_data_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: EditApi.edit_remove_exif_data ..."
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling EditApi.edit_remove_exif_data"
+      end
+      # resource path
+      local_var_path = "/image/edit/remove-exif"
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params["imageFile"] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_remove_exif_data\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Remove transparency from the image
     # Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.

@@ -139,6 +139,30 @@ describe 'EditApi' do
     end
   end
 
+  # unit tests for edit_invert
+  # Invert, negate the colors in the image
+  # Inverts (negates) all of the colors in the image.  If the image contains transparency, the transparency will first be removed prior to inverting the image.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_invert test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_remove_exif_data
+  # Remove EXIF data from the image
+  # Removes any EXIF data and profiles .
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_remove_exif_data test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_remove_transparency
   # Remove transparency from the image
   # Removes any active transparency in the image.  Effectively renders the image at the same resolution, in the same file format, over a white background, thus removing transparency.
