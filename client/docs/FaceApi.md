@@ -34,9 +34,9 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-input_image = File.new("/path/to/file.txt") # File | Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
+input_image = File.new('/path/to/file.txt') # File | Image file to perform the operation on; this image can contain one or more faces which will be matched against face provided in the second image.  Common file formats such as PNG, JPEG are supported.
 
-match_face = File.new("/path/to/file.txt") # File | Image of a single face to compare and match against.
+match_face = File.new('/path/to/file.txt') # File | Image of a single face to compare and match against.
 
 
 begin
@@ -91,7 +91,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -145,7 +145,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -199,7 +199,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -253,7 +253,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -307,7 +307,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -361,7 +361,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FaceApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin

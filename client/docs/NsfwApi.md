@@ -28,7 +28,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::NsfwApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin

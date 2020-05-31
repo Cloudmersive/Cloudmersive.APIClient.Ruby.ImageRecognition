@@ -34,7 +34,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -88,7 +88,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -144,7 +144,7 @@ api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
 quality = 56 # Integer | Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -199,7 +199,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -253,7 +253,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -307,7 +307,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -361,7 +361,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::ConvertApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin

@@ -39,7 +39,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -93,11 +93,11 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-location = "location_example" # String | Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\"
+location = 'location_example' # String | Location to composite the layered images; possible values are: \"center\", \"top-left\", \"top-center\", \"top-right\", \"center-left\", \"center-right\", \"bottom-left\", \"bottom-center\", \"bottom-right\"
 
-base_image = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+base_image = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
-layered_image = File.new("/path/to/file.txt") # File | Image to layer on top of the base image.
+layered_image = File.new('/path/to/file.txt') # File | Image to layer on top of the base image.
 
 
 begin
@@ -155,7 +155,7 @@ api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
 gamma = 1.2 # Float | Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -218,7 +218,7 @@ width = 56 # Integer | The width of the rectangular crop area in pixels.
 
 height = 56 # Integer | The height of the rectangular crop area in pixels.
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -446,7 +446,7 @@ sigma = 56 # Integer | Sigma (blur distance) of the drop shadow
 
 opacity = 56 # Integer | Opacity of the drop shadow; 0 is 0% and 100 is 100%
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -504,7 +504,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -558,7 +558,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -612,7 +612,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -668,7 +668,7 @@ api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
 
 degrees = 1.2 # Float | Degrees to rotate the image; values range from 0.0 to 360.0.
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 Resize an image while preserving aspect ratio
 
-Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio
+Resize an image to a maximum width and maximum height, while preserving the image's original aspect ratio.  Resize is EXIF-aware.
 
 ### Example
 ```ruby
@@ -33,7 +33,7 @@ max_width = 56 # Integer | Maximum width of the output image - final image will 
 
 max_height = 56 # Integer | Maximum height of the output image - final image will be as large as possible while less than or equial to this height
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 Resize an image
 
-Resize an image to a specific width and specific height
+Resize an image to a specific width and specific height.  Resize is EXIF-aware.
 
 ### Example
 ```ruby
@@ -93,7 +93,7 @@ width = 56 # Integer | Width of the output image - final image will be exactly t
 
 height = 56 # Integer | Height of the output image - final image will be exactly this height
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin

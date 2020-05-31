@@ -35,7 +35,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -89,10 +89,10 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 opts = { 
-  post_processing_effect: "post_processing_effect_example" # String | Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).
+  post_processing_effect: 'post_processing_effect_example' # String | Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).
 }
 
 begin
@@ -147,7 +147,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -201,7 +201,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -255,7 +255,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -309,7 +309,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 
 Detect vehicle license plates in an image
 
-Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.  Supported image formats are JPG, PNG and BMP.
 
 ### Example
 ```ruby
@@ -363,7 +363,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -417,9 +417,9 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
 
-input_image = File.new("/path/to/file.txt") # File | Image file to search through for the target image.
+input_image = File.new('/path/to/file.txt') # File | Image file to search through for the target image.
 
-target_image = File.new("/path/to/file.txt") # File | Image to find in the input image.
+target_image = File.new('/path/to/file.txt') # File | Image to find in the input image.
 
 
 begin

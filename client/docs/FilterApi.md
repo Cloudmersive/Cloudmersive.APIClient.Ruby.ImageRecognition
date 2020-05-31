@@ -35,7 +35,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FilterApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -89,7 +89,7 @@ end
 
 api_instance = CloudmersiveImageRecognitionApiClient::FilterApi.new
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -145,7 +145,7 @@ api_instance = CloudmersiveImageRecognitionApiClient::FilterApi.new
 
 radius = 56 # Integer | Radius in pixels of the edge detection operation; a larger radius will produce a greater effect
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -204,7 +204,7 @@ radius = 56 # Integer | Radius in pixels of the emboss operation; a larger radiu
 
 sigma = 56 # Integer | Sigma, or variance, of the emboss operation
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -264,7 +264,7 @@ radius = 56 # Integer | Radius in pixels of the blur operation; a larger radius 
 
 sigma = 56 # Integer | Sigma, or variance, of the gaussian blur operation
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -326,7 +326,7 @@ sigma = 56 # Integer | Sigma, or variance, of the motion blur operation
 
 angle = 56 # Integer | Angle of the motion blur in degrees
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -385,7 +385,7 @@ api_instance = CloudmersiveImageRecognitionApiClient::FilterApi.new
 
 levels = 56 # Integer | Number of unique colors to retain in the output image
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
@@ -442,7 +442,7 @@ api_instance = CloudmersiveImageRecognitionApiClient::FilterApi.new
 
 degrees = 56 # Integer | Degrees of swirl
 
-image_file = File.new("/path/to/file.txt") # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 
 begin
