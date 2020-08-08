@@ -142,6 +142,86 @@ module CloudmersiveImageRecognitionApiClient
       end
       return data, status_code, headers
     end
+    # Composite two images together precisely
+    # Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+    # @param base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param layered_image Image to layer on top of the base image.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :top Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+    # @option opts [Integer] :bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+    # @option opts [Integer] :left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+    # @option opts [Integer] :right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+    # @option opts [Integer] :width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+    # @option opts [Integer] :height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+    # @return [String]
+    def edit_composite_precise(base_image, layered_image, opts = {})
+      data, _status_code, _headers = edit_composite_precise_with_http_info(base_image, layered_image, opts)
+      data
+    end
+
+    # Composite two images together precisely
+    # Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+    # @param base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param layered_image Image to layer on top of the base image.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :top Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+    # @option opts [Integer] :bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+    # @option opts [Integer] :left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+    # @option opts [Integer] :right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+    # @option opts [Integer] :width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+    # @option opts [Integer] :height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_composite_precise_with_http_info(base_image, layered_image, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditApi.edit_composite_precise ...'
+      end
+      # verify the required parameter 'base_image' is set
+      if @api_client.config.client_side_validation && base_image.nil?
+        fail ArgumentError, "Missing the required parameter 'base_image' when calling EditApi.edit_composite_precise"
+      end
+      # verify the required parameter 'layered_image' is set
+      if @api_client.config.client_side_validation && layered_image.nil?
+        fail ArgumentError, "Missing the required parameter 'layered_image' when calling EditApi.edit_composite_precise"
+      end
+      # resource path
+      local_var_path = '/image/edit/composite/precise'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'top'] = opts[:'top'] if !opts[:'top'].nil?
+      header_params[:'bottom'] = opts[:'bottom'] if !opts[:'bottom'].nil?
+      header_params[:'left'] = opts[:'left'] if !opts[:'left'].nil?
+      header_params[:'right'] = opts[:'right'] if !opts[:'right'].nil?
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['baseImage'] = base_image
+      form_params['layeredImage'] = layered_image
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_composite_precise\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Adaptively adjust the contrast of the image to be more appealing and easy to see
     # Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
     # @param gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast.
@@ -200,6 +280,79 @@ module CloudmersiveImageRecognitionApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: EditApi#edit_contrast_adaptive\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Crop an image to an circular area
+    # Crop an image to a target circular area
+    # @param left The left edge of the circular crop area in pixels (X).
+    # @param top The top edge of the circular crop area in pixels (Y).
+    # @param radius The radius of the circular crop area in pixels.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def edit_crop_circle(left, top, radius, image_file, opts = {})
+      data, _status_code, _headers = edit_crop_circle_with_http_info(left, top, radius, image_file, opts)
+      data
+    end
+
+    # Crop an image to an circular area
+    # Crop an image to a target circular area
+    # @param left The left edge of the circular crop area in pixels (X).
+    # @param top The top edge of the circular crop area in pixels (Y).
+    # @param radius The radius of the circular crop area in pixels.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def edit_crop_circle_with_http_info(left, top, radius, image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: EditApi.edit_crop_circle ...'
+      end
+      # verify the required parameter 'left' is set
+      if @api_client.config.client_side_validation && left.nil?
+        fail ArgumentError, "Missing the required parameter 'left' when calling EditApi.edit_crop_circle"
+      end
+      # verify the required parameter 'top' is set
+      if @api_client.config.client_side_validation && top.nil?
+        fail ArgumentError, "Missing the required parameter 'top' when calling EditApi.edit_crop_circle"
+      end
+      # verify the required parameter 'radius' is set
+      if @api_client.config.client_side_validation && radius.nil?
+        fail ArgumentError, "Missing the required parameter 'radius' when calling EditApi.edit_crop_circle"
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling EditApi.edit_crop_circle"
+      end
+      # resource path
+      local_var_path = '/image/edit/crop/circle/{left}/{top}/{radius}'.sub('{' + 'left' + '}', left.to_s).sub('{' + 'top' + '}', top.to_s).sub('{' + 'radius' + '}', radius.to_s)
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['imageFile'] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: EditApi#edit_crop_circle\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

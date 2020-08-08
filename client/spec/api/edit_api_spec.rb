@@ -58,6 +58,25 @@ describe 'EditApi' do
     end
   end
 
+  # unit tests for edit_composite_precise
+  # Composite two images together precisely
+  # Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+  # @param base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param layered_image Image to layer on top of the base image.
+  # @param [Hash] opts the optional parameters
+  # @option opts [Integer] :top Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+  # @option opts [Integer] :bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+  # @option opts [Integer] :left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+  # @option opts [Integer] :right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+  # @option opts [Integer] :width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+  # @option opts [Integer] :height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+  # @return [String]
+  describe 'edit_composite_precise test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for edit_contrast_adaptive
   # Adaptively adjust the contrast of the image to be more appealing and easy to see
   # Uses Gamma to adjust the contrast adaptively the way the human eye sees the world.  Results significantly improve the viewability and visual appeal of the image.
@@ -66,6 +85,21 @@ describe 'EditApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'edit_contrast_adaptive test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for edit_crop_circle
+  # Crop an image to an circular area
+  # Crop an image to a target circular area
+  # @param left The left edge of the circular crop area in pixels (X).
+  # @param top The top edge of the circular crop area in pixels (Y).
+  # @param radius The radius of the circular crop area in pixels.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'edit_crop_circle test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

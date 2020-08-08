@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**edit_auto_orient**](EditApi.md#edit_auto_orient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**edit_composite_basic**](EditApi.md#edit_composite_basic) | **POST** /image/edit/composite/{location} | Composite two images together
+[**edit_composite_precise**](EditApi.md#edit_composite_precise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 [**edit_contrast_adaptive**](EditApi.md#edit_contrast_adaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**edit_crop_circle**](EditApi.md#edit_crop_circle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 [**edit_crop_rectangle**](EditApi.md#edit_crop_rectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**edit_draw_polygon**](EditApi.md#edit_draw_polygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**edit_draw_rectangle**](EditApi.md#edit_draw_rectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
@@ -132,6 +134,77 @@ Name | Type | Description  | Notes
 
 
 
+# **edit_composite_precise**
+> String edit_composite_precise(base_image, layered_image, opts)
+
+Composite two images together precisely
+
+Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+base_image = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+layered_image = File.new('/path/to/file.txt') # File | Image to layer on top of the base image.
+
+opts = { 
+  top: 56, # Integer | Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+  bottom: 56, # Integer | Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+  left: 56, # Integer | Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+  right: 56, # Integer | Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+  width: 56, # Integer | Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+  height: 56 # Integer | Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+}
+
+begin
+  #Composite two images together precisely
+  result = api_instance.edit_composite_precise(base_image, layered_image, opts)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_composite_precise: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **base_image** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+ **layered_image** | **File**| Image to layer on top of the base image. | 
+ **top** | **Integer**| Optional; Desired distance in pixels from the top of the base image to the top of the layered image. | [optional] 
+ **bottom** | **Integer**| Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. | [optional] 
+ **left** | **Integer**| Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. | [optional] 
+ **right** | **Integer**| Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. | [optional] 
+ **width** | **Integer**| Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. | [optional] 
+ **height** | **Integer**| Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
 # **edit_contrast_adaptive**
 > String edit_contrast_adaptive(gamma, image_file)
 
@@ -172,6 +245,69 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gamma** | **Float**| Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **edit_crop_circle**
+> String edit_crop_circle(left, top, radius, image_file)
+
+Crop an image to an circular area
+
+Crop an image to a target circular area
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::EditApi.new
+
+left = 56 # Integer | The left edge of the circular crop area in pixels (X).
+
+top = 56 # Integer | The top edge of the circular crop area in pixels (Y).
+
+radius = 56 # Integer | The radius of the circular crop area in pixels.
+
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Crop an image to an circular area
+  result = api_instance.edit_crop_circle(left, top, radius, image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling EditApi->edit_crop_circle: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **Integer**| The left edge of the circular crop area in pixels (X). | 
+ **top** | **Integer**| The top edge of the circular crop area in pixels (Y). | 
+ **radius** | **Integer**| The radius of the circular crop area in pixels. | 
  **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
