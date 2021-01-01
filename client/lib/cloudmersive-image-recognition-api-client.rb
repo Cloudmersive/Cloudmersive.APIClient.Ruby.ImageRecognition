@@ -19,6 +19,7 @@ require 'cloudmersive-image-recognition-api-client/configuration'
 # Models
 require 'cloudmersive-image-recognition-api-client/models/age_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/color_result'
+require 'cloudmersive-image-recognition-api-client/models/create_handwriting_request'
 require 'cloudmersive-image-recognition-api-client/models/detected_license_plate'
 require 'cloudmersive-image-recognition-api-client/models/detected_object'
 require 'cloudmersive-image-recognition-api-client/models/dominant_color_result'
@@ -62,6 +63,7 @@ require 'cloudmersive-image-recognition-api-client/api/info_api'
 require 'cloudmersive-image-recognition-api-client/api/nsfw_api'
 require 'cloudmersive-image-recognition-api-client/api/recognize_api'
 require 'cloudmersive-image-recognition-api-client/api/resize_api'
+require 'cloudmersive-image-recognition-api-client/api/text_generation_api'
 
 module CloudmersiveImageRecognitionApiClient
   class << self
