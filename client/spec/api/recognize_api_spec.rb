@@ -130,4 +130,43 @@ describe 'RecognizeApi' do
     end
   end
 
+  # unit tests for recognize_similarity_compare
+  # Compare two images for similarity
+  # Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+  # @param base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+  # @param comparison_image Image to compare to the base image.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+  # @return [String]
+  describe 'recognize_similarity_compare test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for recognize_similarity_hash
+  # Generate a perceptual image hash
+  # Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @option opts [String] :recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+  # @return [ImageSimilarityHashResponse]
+  describe 'recognize_similarity_hash test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for recognize_similarity_hash_distance
+  # Calculates the similarity between two perceptual image hashes
+  # Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+  # @param request 
+  # @param [Hash] opts the optional parameters
+  # @return [ImageSimilarityHashDistanceResponse]
+  describe 'recognize_similarity_hash_distance test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
 end

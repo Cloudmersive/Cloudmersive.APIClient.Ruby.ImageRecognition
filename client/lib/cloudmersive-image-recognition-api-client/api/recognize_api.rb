@@ -469,5 +469,182 @@ module CloudmersiveImageRecognitionApiClient
       end
       return data, status_code, headers
     end
+    # Compare two images for similarity
+    # Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+    # @param base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+    # @param comparison_image Image to compare to the base image.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+    # @return [String]
+    def recognize_similarity_compare(base_image, comparison_image, opts = {})
+      data, _status_code, _headers = recognize_similarity_compare_with_http_info(base_image, comparison_image, opts)
+      data
+    end
+
+    # Compare two images for similarity
+    # Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+    # @param base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+    # @param comparison_image Image to compare to the base image.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def recognize_similarity_compare_with_http_info(base_image, comparison_image, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RecognizeApi.recognize_similarity_compare ...'
+      end
+      # verify the required parameter 'base_image' is set
+      if @api_client.config.client_side_validation && base_image.nil?
+        fail ArgumentError, "Missing the required parameter 'base_image' when calling RecognizeApi.recognize_similarity_compare"
+      end
+      # verify the required parameter 'comparison_image' is set
+      if @api_client.config.client_side_validation && comparison_image.nil?
+        fail ArgumentError, "Missing the required parameter 'comparison_image' when calling RecognizeApi.recognize_similarity_compare"
+      end
+      # resource path
+      local_var_path = '/image/recognize/similarity/compare'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'recognitionMode'] = opts[:'recognition_mode'] if !opts[:'recognition_mode'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['baseImage'] = base_image
+      form_params['comparisonImage'] = comparison_image
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RecognizeApi#recognize_similarity_compare\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Generate a perceptual image hash
+    # Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+    # @return [ImageSimilarityHashResponse]
+    def recognize_similarity_hash(image_file, opts = {})
+      data, _status_code, _headers = recognize_similarity_hash_with_http_info(image_file, opts)
+      data
+    end
+
+    # Generate a perceptual image hash
+    # Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+    # @return [Array<(ImageSimilarityHashResponse, Fixnum, Hash)>] ImageSimilarityHashResponse data, response status code and response headers
+    def recognize_similarity_hash_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RecognizeApi.recognize_similarity_hash ...'
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling RecognizeApi.recognize_similarity_hash"
+      end
+      # resource path
+      local_var_path = '/image/recognize/similarity/hash'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+      header_params[:'recognitionMode'] = opts[:'recognition_mode'] if !opts[:'recognition_mode'].nil?
+
+      # form parameters
+      form_params = {}
+      form_params['imageFile'] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ImageSimilarityHashResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RecognizeApi#recognize_similarity_hash\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Calculates the similarity between two perceptual image hashes
+    # Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [ImageSimilarityHashDistanceResponse]
+    def recognize_similarity_hash_distance(request, opts = {})
+      data, _status_code, _headers = recognize_similarity_hash_distance_with_http_info(request, opts)
+      data
+    end
+
+    # Calculates the similarity between two perceptual image hashes
+    # Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+    # @param request 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ImageSimilarityHashDistanceResponse, Fixnum, Hash)>] ImageSimilarityHashDistanceResponse data, response status code and response headers
+    def recognize_similarity_hash_distance_with_http_info(request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: RecognizeApi.recognize_similarity_hash_distance ...'
+      end
+      # verify the required parameter 'request' is set
+      if @api_client.config.client_side_validation && request.nil?
+        fail ArgumentError, "Missing the required parameter 'request' when calling RecognizeApi.recognize_similarity_hash_distance"
+      end
+      # resource path
+      local_var_path = '/image/recognize/similarity/hash/distance'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(request)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'ImageSimilarityHashDistanceResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: RecognizeApi#recognize_similarity_hash_distance\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

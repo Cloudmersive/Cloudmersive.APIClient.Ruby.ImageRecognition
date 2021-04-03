@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**recognize_detect_text_large**](RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognize_detect_vehicle_license_plates**](RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 [**recognize_find_symbol**](RecognizeApi.md#recognize_find_symbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+[**recognize_similarity_compare**](RecognizeApi.md#recognize_similarity_compare) | **POST** /image/recognize/similarity/compare | Compare two images for similarity
+[**recognize_similarity_hash**](RecognizeApi.md#recognize_similarity_hash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
+[**recognize_similarity_hash_distance**](RecognizeApi.md#recognize_similarity_hash_distance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 
 
 # **recognize_describe**
@@ -449,6 +452,179 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **recognize_similarity_compare**
+> String recognize_similarity_compare(base_image, comparison_image, opts)
+
+Compare two images for similarity
+
+Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
+
+base_image = File.new('/path/to/file.txt') # File | Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+
+comparison_image = File.new('/path/to/file.txt') # File | Image to compare to the base image.
+
+opts = { 
+  recognition_mode: 'recognition_mode_example' # String | Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+}
+
+begin
+  #Compare two images for similarity
+  result = api_instance.recognize_similarity_compare(base_image, comparison_image, opts)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling RecognizeApi->recognize_similarity_compare: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **base_image** | **File**| Image file to compare against.  Common file formats such as PNG, JPEG are supported. | 
+ **comparison_image** | **File**| Image to compare to the base image. | 
+ **recognition_mode** | **String**| Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. | [optional] 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **recognize_similarity_hash**
+> ImageSimilarityHashResponse recognize_similarity_hash(image_file, opts)
+
+Generate a perceptual image hash
+
+Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
+
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+opts = { 
+  recognition_mode: 'recognition_mode_example' # String | Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+}
+
+begin
+  #Generate a perceptual image hash
+  result = api_instance.recognize_similarity_hash(image_file, opts)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling RecognizeApi->recognize_similarity_hash: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+ **recognition_mode** | **String**| Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. | [optional] 
+
+### Return type
+
+[**ImageSimilarityHashResponse**](ImageSimilarityHashResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+
+
+# **recognize_similarity_hash_distance**
+> ImageSimilarityHashDistanceResponse recognize_similarity_hash_distance(request)
+
+Calculates the similarity between two perceptual image hashes
+
+Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
+
+request = CloudmersiveImageRecognitionApiClient::ImageSimilarityHashDistanceRequest.new # ImageSimilarityHashDistanceRequest | 
+
+
+begin
+  #Calculates the similarity between two perceptual image hashes
+  result = api_instance.recognize_similarity_hash_distance(request)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling RecognizeApi->recognize_similarity_hash_distance: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**ImageSimilarityHashDistanceRequest**](ImageSimilarityHashDistanceRequest.md)|  | 
+
+### Return type
+
+[**ImageSimilarityHashDistanceResponse**](ImageSimilarityHashDistanceResponse.md)
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 
