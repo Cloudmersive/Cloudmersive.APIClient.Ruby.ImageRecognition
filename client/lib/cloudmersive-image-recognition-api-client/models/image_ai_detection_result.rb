@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -13,32 +13,32 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # A person identified in an image gender classification operation
-  class PersonWithGender
-    # Location and other information about the person's face corresponding to this age classification
-    attr_accessor :face_location
+  # Result of performing an AI Image detection
+  class ImageAiDetectionResult
+    # True if the image is clean (not AI generated) and false otherwise
+    attr_accessor :clean_result
 
-    # Confidence level of gender classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
-    attr_accessor :gender_classification_confidence
+    # Risk score between 0.0 (no risk) and 1.0 (highest risk), with anything over 0.8 being high risk
+    attr_accessor :ai_generated_risk_score
 
-    # The person's identified gender; possible values are \"Male\", \"Female\" and \"Unknown\"
-    attr_accessor :gender_class
+    # Tool used to generate the image, if identified (this cannot always be identified)
+    attr_accessor :ai_source
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'face_location' => :'FaceLocation',
-        :'gender_classification_confidence' => :'GenderClassificationConfidence',
-        :'gender_class' => :'GenderClass'
+        :'clean_result' => :'CleanResult',
+        :'ai_generated_risk_score' => :'AiGeneratedRiskScore',
+        :'ai_source' => :'AiSource'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'face_location' => :'Face',
-        :'gender_classification_confidence' => :'Float',
-        :'gender_class' => :'String'
+        :'clean_result' => :'BOOLEAN',
+        :'ai_generated_risk_score' => :'Float',
+        :'ai_source' => :'String'
       }
     end
 
@@ -50,16 +50,16 @@ module CloudmersiveImageRecognitionApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'FaceLocation')
-        self.face_location = attributes[:'FaceLocation']
+      if attributes.has_key?(:'CleanResult')
+        self.clean_result = attributes[:'CleanResult']
       end
 
-      if attributes.has_key?(:'GenderClassificationConfidence')
-        self.gender_classification_confidence = attributes[:'GenderClassificationConfidence']
+      if attributes.has_key?(:'AiGeneratedRiskScore')
+        self.ai_generated_risk_score = attributes[:'AiGeneratedRiskScore']
       end
 
-      if attributes.has_key?(:'GenderClass')
-        self.gender_class = attributes[:'GenderClass']
+      if attributes.has_key?(:'AiSource')
+        self.ai_source = attributes[:'AiSource']
       end
     end
 
@@ -81,9 +81,9 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          face_location == o.face_location &&
-          gender_classification_confidence == o.gender_classification_confidence &&
-          gender_class == o.gender_class
+          clean_result == o.clean_result &&
+          ai_generated_risk_score == o.ai_generated_risk_score &&
+          ai_source == o.ai_source
     end
 
     # @see the `==` method
@@ -95,7 +95,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [face_location, gender_classification_confidence, gender_class].hash
+      [clean_result, ai_generated_risk_score, ai_source].hash
     end
 
     # Builds the object from hash

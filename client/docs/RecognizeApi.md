@@ -6,8 +6,6 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**recognize_describe**](RecognizeApi.md#recognize_describe) | **POST** /image/recognize/describe | Describe an image in natural language
 [**recognize_detect_and_unskew_document**](RecognizeApi.md#recognize_detect_and_unskew_document) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-[**recognize_detect_objects**](RecognizeApi.md#recognize_detect_objects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
-[**recognize_detect_people**](RecognizeApi.md#recognize_detect_people) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 [**recognize_detect_text_fine**](RecognizeApi.md#recognize_detect_text_fine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 [**recognize_detect_text_large**](RecognizeApi.md#recognize_detect_text_large) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognize_detect_vehicle_license_plates**](RecognizeApi.md#recognize_detect_vehicle_license_plates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
@@ -117,114 +115,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **String**
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
-
-
-
-# **recognize_detect_objects**
-> ObjectDetectionResult recognize_detect_objects(image_file)
-
-Detect objects including types and locations in an image
-
-Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
-
-### Example
-```ruby
-# load the gem
-require 'cloudmersive-image-recognition-api-client'
-# setup authorization
-CloudmersiveImageRecognitionApiClient.configure do |config|
-  # Configure API key authorization: Apikey
-  config.api_key['Apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Apikey'] = 'Bearer'
-end
-
-api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
-
-image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-
-
-begin
-  #Detect objects including types and locations in an image
-  result = api_instance.recognize_detect_objects(image_file)
-  p result
-rescue CloudmersiveImageRecognitionApiClient::ApiError => e
-  puts "Exception when calling RecognizeApi->recognize_detect_objects: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
-
-### Return type
-
-[**ObjectDetectionResult**](ObjectDetectionResult.md)
-
-### Authorization
-
-[Apikey](../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
-
-
-
-# **recognize_detect_people**
-> ObjectDetectionResult recognize_detect_people(image_file)
-
-Detect people including locations in an image
-
-Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
-
-### Example
-```ruby
-# load the gem
-require 'cloudmersive-image-recognition-api-client'
-# setup authorization
-CloudmersiveImageRecognitionApiClient.configure do |config|
-  # Configure API key authorization: Apikey
-  config.api_key['Apikey'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['Apikey'] = 'Bearer'
-end
-
-api_instance = CloudmersiveImageRecognitionApiClient::RecognizeApi.new
-
-image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-
-
-begin
-  #Detect people including locations in an image
-  result = api_instance.recognize_detect_people(image_file)
-  p result
-rescue CloudmersiveImageRecognitionApiClient::ApiError => e
-  puts "Exception when calling RecognizeApi->recognize_detect_people: #{e}"
-end
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
-
-### Return type
-
-[**ObjectDetectionResult**](ObjectDetectionResult.md)
 
 ### Authorization
 

@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -52,30 +52,6 @@ describe 'RecognizeApi' do
   # @option opts [String] :post_processing_effect Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).
   # @return [String]
   describe 'recognize_detect_and_unskew_document test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for recognize_detect_objects
-  # Detect objects including types and locations in an image
-  # Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
-  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-  # @param [Hash] opts the optional parameters
-  # @return [ObjectDetectionResult]
-  describe 'recognize_detect_objects test' do
-    it 'should work' do
-      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
-    end
-  end
-
-  # unit tests for recognize_detect_people
-  # Detect people including locations in an image
-  # Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
-  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-  # @param [Hash] opts the optional parameters
-  # @return [ObjectDetectionResult]
-  describe 'recognize_detect_people test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

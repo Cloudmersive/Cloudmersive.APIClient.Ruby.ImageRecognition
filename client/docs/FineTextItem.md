@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**detected_text** | **String** | Detected text in the image | [optional] 
 **top_left_x** | **Integer** | X coordinate of the top/left text location; 0 represents the left edge of the input image | [optional] 
 **top_left_y** | **Integer** | Y coordinate of the top/left text location; 0 represents the top edge of the input image | [optional] 
 **top_right_x** | **Integer** | X coordinate of the top/right text location; 0 represents the left edge of the input image | [optional] 

@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -71,7 +71,7 @@ describe 'FaceApi' do
 
   # unit tests for face_detect_age
   # Detect the age of people in an image
-  # Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+  # Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
   # @return [AgeDetectionResult]
@@ -83,10 +83,10 @@ describe 'FaceApi' do
 
   # unit tests for face_detect_gender
   # Detect the gender of people in an image
-  # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+  # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
-  # @return [GenderDetectionResult]
+  # @return [AgeDetectionResult]
   describe 'face_detect_gender test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

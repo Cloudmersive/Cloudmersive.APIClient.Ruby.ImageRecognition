@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.14
 =end
 
 module CloudmersiveImageRecognitionApiClient
-  VERSION = '2.0.5'
+  VERSION = '2.1.0'
 end

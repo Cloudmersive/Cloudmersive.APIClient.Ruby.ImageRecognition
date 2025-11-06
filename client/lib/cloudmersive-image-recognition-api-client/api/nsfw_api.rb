@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -19,8 +19,8 @@ module CloudmersiveImageRecognitionApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Not safe for work NSFW racy content classification
-    # Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+    # Not safe for work (NSFW) content classification for Images
+    # Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [NsfwResult]
@@ -29,8 +29,8 @@ module CloudmersiveImageRecognitionApiClient
       data
     end
 
-    # Not safe for work NSFW racy content classification
-    # Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+    # Not safe for work (NSFW) content classification for Images
+    # Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [Array<(NsfwResult, Fixnum, Hash)>] NsfwResult data, response status code and response headers
@@ -71,6 +71,171 @@ module CloudmersiveImageRecognitionApiClient
         :return_type => 'NsfwResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: NsfwApi#nsfw_classify\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Advanced content moderation and not safe for work (NSFW) content classification for Images
+    # Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [NsfwAdvancedResult]
+    def nsfw_classify_advanced(image_file, opts = {})
+      data, _status_code, _headers = nsfw_classify_advanced_with_http_info(image_file, opts)
+      data
+    end
+
+    # Advanced content moderation and not safe for work (NSFW) content classification for Images
+    # Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(NsfwAdvancedResult, Fixnum, Hash)>] NsfwAdvancedResult data, response status code and response headers
+    def nsfw_classify_advanced_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: NsfwApi.nsfw_classify_advanced ...'
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling NsfwApi.nsfw_classify_advanced"
+      end
+      # resource path
+      local_var_path = '/image/nsfw/classify/advanced'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['imageFile'] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NsfwAdvancedResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: NsfwApi#nsfw_classify_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Not safe for work (NSFW) content classification for Documents
+    # Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [NsfwResult]
+    def nsfw_classify_document(image_file, opts = {})
+      data, _status_code, _headers = nsfw_classify_document_with_http_info(image_file, opts)
+      data
+    end
+
+    # Not safe for work (NSFW) content classification for Documents
+    # Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(NsfwResult, Fixnum, Hash)>] NsfwResult data, response status code and response headers
+    def nsfw_classify_document_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: NsfwApi.nsfw_classify_document ...'
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling NsfwApi.nsfw_classify_document"
+      end
+      # resource path
+      local_var_path = '/image/nsfw/classify/document'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['imageFile'] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NsfwResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: NsfwApi#nsfw_classify_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Not safe for work (NSFW) content classification for Video
+    # Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+    # @param video_file Video file to perform the operation on.  Common file formats such as MP4, MPG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [NsfwResult]
+    def nsfw_classify_video(video_file, opts = {})
+      data, _status_code, _headers = nsfw_classify_video_with_http_info(video_file, opts)
+      data
+    end
+
+    # Not safe for work (NSFW) content classification for Video
+    # Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+    # @param video_file Video file to perform the operation on.  Common file formats such as MP4, MPG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(NsfwResult, Fixnum, Hash)>] NsfwResult data, response status code and response headers
+    def nsfw_classify_video_with_http_info(video_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: NsfwApi.nsfw_classify_video ...'
+      end
+      # verify the required parameter 'video_file' is set
+      if @api_client.config.client_side_validation && video_file.nil?
+        fail ArgumentError, "Missing the required parameter 'video_file' when calling NsfwApi.nsfw_classify_video"
+      end
+      # resource path
+      local_var_path = '/image/nsfw/classify/video'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['videoFile'] = video_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'NsfwResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: NsfwApi#nsfw_classify_video\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

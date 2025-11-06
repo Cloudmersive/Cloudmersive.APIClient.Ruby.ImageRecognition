@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -192,7 +192,7 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
     # Detect the age of people in an image
-    # Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+    # Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [AgeDetectionResult]
@@ -202,7 +202,7 @@ module CloudmersiveImageRecognitionApiClient
     end
 
     # Detect the age of people in an image
-    # Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+    # Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [Array<(AgeDetectionResult, Fixnum, Hash)>] AgeDetectionResult data, response status code and response headers
@@ -247,20 +247,20 @@ module CloudmersiveImageRecognitionApiClient
       return data, status_code, headers
     end
     # Detect the gender of people in an image
-    # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+    # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
-    # @return [GenderDetectionResult]
+    # @return [AgeDetectionResult]
     def face_detect_gender(image_file, opts = {})
       data, _status_code, _headers = face_detect_gender_with_http_info(image_file, opts)
       data
     end
 
     # Detect the gender of people in an image
-    # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+    # Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
-    # @return [Array<(GenderDetectionResult, Fixnum, Hash)>] GenderDetectionResult data, response status code and response headers
+    # @return [Array<(AgeDetectionResult, Fixnum, Hash)>] AgeDetectionResult data, response status code and response headers
     def face_detect_gender_with_http_info(image_file, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: FaceApi.face_detect_gender ...'
@@ -295,7 +295,7 @@ module CloudmersiveImageRecognitionApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'GenderDetectionResult')
+        :return_type => 'AgeDetectionResult')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: FaceApi#face_detect_gender\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

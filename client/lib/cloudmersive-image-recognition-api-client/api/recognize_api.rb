@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -129,116 +129,6 @@ module CloudmersiveImageRecognitionApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: RecognizeApi#recognize_detect_and_unskew_document\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Detect objects including types and locations in an image
-    # Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
-    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-    # @param [Hash] opts the optional parameters
-    # @return [ObjectDetectionResult]
-    def recognize_detect_objects(image_file, opts = {})
-      data, _status_code, _headers = recognize_detect_objects_with_http_info(image_file, opts)
-      data
-    end
-
-    # Detect objects including types and locations in an image
-    # Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
-    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ObjectDetectionResult, Fixnum, Hash)>] ObjectDetectionResult data, response status code and response headers
-    def recognize_detect_objects_with_http_info(image_file, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecognizeApi.recognize_detect_objects ...'
-      end
-      # verify the required parameter 'image_file' is set
-      if @api_client.config.client_side_validation && image_file.nil?
-        fail ArgumentError, "Missing the required parameter 'image_file' when calling RecognizeApi.recognize_detect_objects"
-      end
-      # resource path
-      local_var_path = '/image/recognize/detect-objects'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
-
-      # form parameters
-      form_params = {}
-      form_params['imageFile'] = image_file
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'ObjectDetectionResult')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecognizeApi#recognize_detect_objects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-    # Detect people including locations in an image
-    # Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
-    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-    # @param [Hash] opts the optional parameters
-    # @return [ObjectDetectionResult]
-    def recognize_detect_people(image_file, opts = {})
-      data, _status_code, _headers = recognize_detect_people_with_http_info(image_file, opts)
-      data
-    end
-
-    # Detect people including locations in an image
-    # Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
-    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(ObjectDetectionResult, Fixnum, Hash)>] ObjectDetectionResult data, response status code and response headers
-    def recognize_detect_people_with_http_info(image_file, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: RecognizeApi.recognize_detect_people ...'
-      end
-      # verify the required parameter 'image_file' is set
-      if @api_client.config.client_side_validation && image_file.nil?
-        fail ArgumentError, "Missing the required parameter 'image_file' when calling RecognizeApi.recognize_detect_people"
-      end
-      # resource path
-      local_var_path = '/image/recognize/detect-people'
-
-      # query parameters
-      query_params = {}
-
-      # header parameters
-      header_params = {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
-      # HTTP header 'Content-Type'
-      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
-
-      # form parameters
-      form_params = {}
-      form_params['imageFile'] = image_file
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['Apikey']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'ObjectDetectionResult')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: RecognizeApi#recognize_detect_people\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

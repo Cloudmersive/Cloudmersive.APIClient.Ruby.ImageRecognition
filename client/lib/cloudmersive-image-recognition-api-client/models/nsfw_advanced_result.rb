@@ -13,23 +13,59 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # Result of detecting vehicle license plates in an image
-  class VehicleLicensePlateDetectionResult
-    # Was the image processed successfully?
+  # Result of an Advanced NSFW classification
+  class NsfwAdvancedResult
+    # True if the classification was successfully run, false otherwise
     attr_accessor :successful
 
-    # License plates found in the image
-    attr_accessor :detected_license_plates
+    # True if the result was clean, false otherwise
+    attr_accessor :clean_result
 
-    # The number of license plates detected in the image
-    attr_accessor :detected_license_plate_count
+    # True if the image contains nudity or sex, false otherwise
+    attr_accessor :contains_nudity
+
+    # True if the image contains graphic violence and/or gore, false otherwise
+    attr_accessor :contains_graphic_violence
+
+    # True if the image contains non-graphic violence, e.g. weapons, false otherwise
+    attr_accessor :contains_non_graphic_violence
+
+    # True if the image contains self-harm or suicide imagery, false otherwise
+    attr_accessor :contains_self_harm
+
+    # True if the image contains hate, false otherwise
+    attr_accessor :contains_hate
+
+    # True if the image contains potentially illegal activity such as drugs, false otherwise
+    attr_accessor :contains_potential_illegal_activity
+
+    # True if the image contains medical imagery, false otherwise
+    attr_accessor :contains_medical_imagery
+
+    # True if the image contains profanity or obscenities, false otherwise
+    attr_accessor :contains_profanity
+
+    # Score between 0.0 and 1.0.  Scores of 0.0-0.2 represent high probability safe content, while scores 0.8-1.0 represent high probability unsafe content.  Content between 0.2 and 0.8 is of increasing raciness.
+    attr_accessor :score
+
+    # Classification result into four categories: SafeContent_HighProbability, UnsafeContent_HighProbability, RacyContent, SafeContent_ModerateProbability
+    attr_accessor :classification_outcome
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'successful' => :'Successful',
-        :'detected_license_plates' => :'DetectedLicensePlates',
-        :'detected_license_plate_count' => :'DetectedLicensePlateCount'
+        :'clean_result' => :'CleanResult',
+        :'contains_nudity' => :'ContainsNudity',
+        :'contains_graphic_violence' => :'ContainsGraphicViolence',
+        :'contains_non_graphic_violence' => :'ContainsNonGraphicViolence',
+        :'contains_self_harm' => :'ContainsSelfHarm',
+        :'contains_hate' => :'ContainsHate',
+        :'contains_potential_illegal_activity' => :'ContainsPotentialIllegalActivity',
+        :'contains_medical_imagery' => :'ContainsMedicalImagery',
+        :'contains_profanity' => :'ContainsProfanity',
+        :'score' => :'Score',
+        :'classification_outcome' => :'ClassificationOutcome'
       }
     end
 
@@ -37,8 +73,17 @@ module CloudmersiveImageRecognitionApiClient
     def self.swagger_types
       {
         :'successful' => :'BOOLEAN',
-        :'detected_license_plates' => :'Array<DetectedLicensePlate>',
-        :'detected_license_plate_count' => :'Integer'
+        :'clean_result' => :'BOOLEAN',
+        :'contains_nudity' => :'BOOLEAN',
+        :'contains_graphic_violence' => :'BOOLEAN',
+        :'contains_non_graphic_violence' => :'BOOLEAN',
+        :'contains_self_harm' => :'BOOLEAN',
+        :'contains_hate' => :'BOOLEAN',
+        :'contains_potential_illegal_activity' => :'BOOLEAN',
+        :'contains_medical_imagery' => :'BOOLEAN',
+        :'contains_profanity' => :'BOOLEAN',
+        :'score' => :'Float',
+        :'classification_outcome' => :'String'
       }
     end
 
@@ -54,14 +99,48 @@ module CloudmersiveImageRecognitionApiClient
         self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'DetectedLicensePlates')
-        if (value = attributes[:'DetectedLicensePlates']).is_a?(Array)
-          self.detected_license_plates = value
-        end
+      if attributes.has_key?(:'CleanResult')
+        self.clean_result = attributes[:'CleanResult']
       end
 
-      if attributes.has_key?(:'DetectedLicensePlateCount')
-        self.detected_license_plate_count = attributes[:'DetectedLicensePlateCount']
+      if attributes.has_key?(:'ContainsNudity')
+        self.contains_nudity = attributes[:'ContainsNudity']
+      end
+
+      if attributes.has_key?(:'ContainsGraphicViolence')
+        self.contains_graphic_violence = attributes[:'ContainsGraphicViolence']
+      end
+
+      if attributes.has_key?(:'ContainsNonGraphicViolence')
+        self.contains_non_graphic_violence = attributes[:'ContainsNonGraphicViolence']
+      end
+
+      if attributes.has_key?(:'ContainsSelfHarm')
+        self.contains_self_harm = attributes[:'ContainsSelfHarm']
+      end
+
+      if attributes.has_key?(:'ContainsHate')
+        self.contains_hate = attributes[:'ContainsHate']
+      end
+
+      if attributes.has_key?(:'ContainsPotentialIllegalActivity')
+        self.contains_potential_illegal_activity = attributes[:'ContainsPotentialIllegalActivity']
+      end
+
+      if attributes.has_key?(:'ContainsMedicalImagery')
+        self.contains_medical_imagery = attributes[:'ContainsMedicalImagery']
+      end
+
+      if attributes.has_key?(:'ContainsProfanity')
+        self.contains_profanity = attributes[:'ContainsProfanity']
+      end
+
+      if attributes.has_key?(:'Score')
+        self.score = attributes[:'Score']
+      end
+
+      if attributes.has_key?(:'ClassificationOutcome')
+        self.classification_outcome = attributes[:'ClassificationOutcome']
       end
     end
 
@@ -84,8 +163,17 @@ module CloudmersiveImageRecognitionApiClient
       return true if self.equal?(o)
       self.class == o.class &&
           successful == o.successful &&
-          detected_license_plates == o.detected_license_plates &&
-          detected_license_plate_count == o.detected_license_plate_count
+          clean_result == o.clean_result &&
+          contains_nudity == o.contains_nudity &&
+          contains_graphic_violence == o.contains_graphic_violence &&
+          contains_non_graphic_violence == o.contains_non_graphic_violence &&
+          contains_self_harm == o.contains_self_harm &&
+          contains_hate == o.contains_hate &&
+          contains_potential_illegal_activity == o.contains_potential_illegal_activity &&
+          contains_medical_imagery == o.contains_medical_imagery &&
+          contains_profanity == o.contains_profanity &&
+          score == o.score &&
+          classification_outcome == o.classification_outcome
     end
 
     # @see the `==` method
@@ -97,7 +185,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [successful, detected_license_plates, detected_license_plate_count].hash
+      [successful, clean_result, contains_nudity, contains_graphic_violence, contains_non_graphic_violence, contains_self_harm, contains_hate, contains_potential_illegal_activity, contains_medical_imagery, contains_profanity, score, classification_outcome].hash
     end
 
     # Builds the object from hash

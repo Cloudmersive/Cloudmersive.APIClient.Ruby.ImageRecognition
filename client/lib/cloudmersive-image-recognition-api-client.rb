@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -21,7 +21,6 @@ require 'cloudmersive-image-recognition-api-client/models/age_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/color_result'
 require 'cloudmersive-image-recognition-api-client/models/create_handwriting_request'
 require 'cloudmersive-image-recognition-api-client/models/detected_license_plate'
-require 'cloudmersive-image-recognition-api-client/models/detected_object'
 require 'cloudmersive-image-recognition-api-client/models/dominant_color_result'
 require 'cloudmersive-image-recognition-api-client/models/draw_polygon_instance'
 require 'cloudmersive-image-recognition-api-client/models/draw_polygon_request'
@@ -39,7 +38,7 @@ require 'cloudmersive-image-recognition-api-client/models/face_with_landmarks'
 require 'cloudmersive-image-recognition-api-client/models/find_symbol_result'
 require 'cloudmersive-image-recognition-api-client/models/fine_text_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/fine_text_item'
-require 'cloudmersive-image-recognition-api-client/models/gender_detection_result'
+require 'cloudmersive-image-recognition-api-client/models/image_ai_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/image_description_response'
 require 'cloudmersive-image-recognition-api-client/models/image_metadata'
 require 'cloudmersive-image-recognition-api-client/models/image_metadata_exif_value'
@@ -47,10 +46,9 @@ require 'cloudmersive-image-recognition-api-client/models/image_similarity_compa
 require 'cloudmersive-image-recognition-api-client/models/image_similarity_hash_distance_request'
 require 'cloudmersive-image-recognition-api-client/models/image_similarity_hash_distance_response'
 require 'cloudmersive-image-recognition-api-client/models/image_similarity_hash_response'
+require 'cloudmersive-image-recognition-api-client/models/nsfw_advanced_result'
 require 'cloudmersive-image-recognition-api-client/models/nsfw_result'
-require 'cloudmersive-image-recognition-api-client/models/object_detection_result'
 require 'cloudmersive-image-recognition-api-client/models/person_with_age'
-require 'cloudmersive-image-recognition-api-client/models/person_with_gender'
 require 'cloudmersive-image-recognition-api-client/models/polygon_point'
 require 'cloudmersive-image-recognition-api-client/models/recognition_outcome'
 require 'cloudmersive-image-recognition-api-client/models/text_detection_result'
@@ -58,6 +56,7 @@ require 'cloudmersive-image-recognition-api-client/models/text_item'
 require 'cloudmersive-image-recognition-api-client/models/vehicle_license_plate_detection_result'
 
 # APIs
+require 'cloudmersive-image-recognition-api-client/api/ai_image_detection_api'
 require 'cloudmersive-image-recognition-api-client/api/artistic_api'
 require 'cloudmersive-image-recognition-api-client/api/convert_api'
 require 'cloudmersive-image-recognition-api-client/api/edit_api'

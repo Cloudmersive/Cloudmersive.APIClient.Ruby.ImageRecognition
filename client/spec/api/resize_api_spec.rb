@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -41,6 +41,18 @@ describe 'ResizeApi' do
   # @param [Hash] opts the optional parameters
   # @return [String]
   describe 'resize_post test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for resize_resize_ai_super_sampling
+  # Resize an image with AI super sampling
+  # Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [String]
+  describe 'resize_resize_ai_super_sampling test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

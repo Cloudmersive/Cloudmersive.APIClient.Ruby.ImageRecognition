@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -13,12 +13,12 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveImageRecognitionApiClient
-  # Result from classifying the Age of people in an image
+  # Result from classifying the Age and Gender of people in an image
   class AgeDetectionResult
     # True if the operation was successful, false otherwise
     attr_accessor :successful
 
-    # People in the image annotated with age information
+    # People in the image annotated with age and gender information
     attr_accessor :people_with_age
 
     # Number of people identified in the image with an age

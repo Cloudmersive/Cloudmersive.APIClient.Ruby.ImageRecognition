@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -83,6 +83,61 @@ module CloudmersiveImageRecognitionApiClient
         :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ResizeApi#resize_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Resize an image with AI super sampling
+    # Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [String]
+    def resize_resize_ai_super_sampling(image_file, opts = {})
+      data, _status_code, _headers = resize_resize_ai_super_sampling_with_http_info(image_file, opts)
+      data
+    end
+
+    # Resize an image with AI super sampling
+    # Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def resize_resize_ai_super_sampling_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ResizeApi.resize_resize_ai_super_sampling ...'
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling ResizeApi.resize_resize_ai_super_sampling"
+      end
+      # resource path
+      local_var_path = '/image/resize/ai/target'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['imageFile'] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResizeApi#resize_resize_ai_super_sampling\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

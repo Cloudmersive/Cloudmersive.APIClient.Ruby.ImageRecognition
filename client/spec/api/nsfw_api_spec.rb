@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -33,12 +33,48 @@ describe 'NsfwApi' do
   end
 
   # unit tests for nsfw_classify
-  # Not safe for work NSFW racy content classification
-  # Classify an image into Not Safe For Work (NSFW)/Porn/Racy content and Safe Content.
+  # Not safe for work (NSFW) content classification for Images
+  # Classify an image into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG or GIF.  Consumes 20 API calls.
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
   # @return [NsfwResult]
   describe 'nsfw_classify test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for nsfw_classify_advanced
+  # Advanced content moderation and not safe for work (NSFW) content classification for Images
+  # Uses advanced AI to classify an image into Not Safe For Work (NSFW) or not and determine if it contains nudity, graphic violence, non-graphic violence, self-harm, hate, potential illegal activity, medical imagery, or profanity.  Helpful for filtering out unsafe content when processing user images.  Input image should be JPG, PNG.  Consumes 100 API calls.  Requires Managed Instance or Private Cloud deployment, and a GPU.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [NsfwAdvancedResult]
+  describe 'nsfw_classify_advanced test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for nsfw_classify_document
+  # Not safe for work (NSFW) content classification for Documents
+  # Classify a document (PDF, DOCX, DOC, XLSX, XLS, PPTX, PPT) into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Consumes 20 API calls per image.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [NsfwResult]
+  describe 'nsfw_classify_document test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for nsfw_classify_video
+  # Not safe for work (NSFW) content classification for Video
+  # Classify a video into Not Safe For Work (NSFW)/Pornographic/Nudity/Racy content and Safe Content.  Helpful for filtering out unsafe content when processing user images.  Input image should be MP4, MOV, WEBM, MKV, AVI, FLV, MPG, GIF.  Consumes 20 API calls per frame analyzed.  Requires Cloudmersive Managed Instance or Private Cloud deployment.
+  # @param video_file Video file to perform the operation on.  Common file formats such as MP4, MPG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [NsfwResult]
+  describe 'nsfw_classify_video test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

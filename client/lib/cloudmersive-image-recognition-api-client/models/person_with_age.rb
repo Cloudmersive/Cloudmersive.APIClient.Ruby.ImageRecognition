@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -24,7 +24,17 @@ module CloudmersiveImageRecognitionApiClient
     # The person's age range classification result in years; possible values are \"0-2\", \"4-6\", \"8-13\", \"15-20\", \"25-32\", \"38-43\", \"48-53\", \"60+\"
     attr_accessor :age_class
 
+    # The specific estimated age of the person
     attr_accessor :age
+
+    # Gender estimation classification as Female or Male
+    attr_accessor :gender_classification
+
+    # Confidence level of classification as female; possible values are between 0.0 and 1.0
+    attr_accessor :gender_female_confidence
+
+    # Confidence level of classification as male; possible values are between 0.0 and 1.0
+    attr_accessor :gender_male_confidence
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -32,7 +42,10 @@ module CloudmersiveImageRecognitionApiClient
         :'face_location' => :'FaceLocation',
         :'age_classification_confidence' => :'AgeClassificationConfidence',
         :'age_class' => :'AgeClass',
-        :'age' => :'Age'
+        :'age' => :'Age',
+        :'gender_classification' => :'GenderClassification',
+        :'gender_female_confidence' => :'GenderFemaleConfidence',
+        :'gender_male_confidence' => :'GenderMaleConfidence'
       }
     end
 
@@ -42,7 +55,10 @@ module CloudmersiveImageRecognitionApiClient
         :'face_location' => :'Face',
         :'age_classification_confidence' => :'Float',
         :'age_class' => :'String',
-        :'age' => :'Float'
+        :'age' => :'Float',
+        :'gender_classification' => :'String',
+        :'gender_female_confidence' => :'Float',
+        :'gender_male_confidence' => :'Float'
       }
     end
 
@@ -69,6 +85,18 @@ module CloudmersiveImageRecognitionApiClient
       if attributes.has_key?(:'Age')
         self.age = attributes[:'Age']
       end
+
+      if attributes.has_key?(:'GenderClassification')
+        self.gender_classification = attributes[:'GenderClassification']
+      end
+
+      if attributes.has_key?(:'GenderFemaleConfidence')
+        self.gender_female_confidence = attributes[:'GenderFemaleConfidence']
+      end
+
+      if attributes.has_key?(:'GenderMaleConfidence')
+        self.gender_male_confidence = attributes[:'GenderMaleConfidence']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -92,7 +120,10 @@ module CloudmersiveImageRecognitionApiClient
           face_location == o.face_location &&
           age_classification_confidence == o.age_classification_confidence &&
           age_class == o.age_class &&
-          age == o.age
+          age == o.age &&
+          gender_classification == o.gender_classification &&
+          gender_female_confidence == o.gender_female_confidence &&
+          gender_male_confidence == o.gender_male_confidence
     end
 
     # @see the `==` method
@@ -104,7 +135,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [face_location, age_classification_confidence, age_class, age].hash
+      [face_location, age_classification_confidence, age_class, age, gender_classification, gender_female_confidence, gender_male_confidence].hash
     end
 
     # Builds the object from hash

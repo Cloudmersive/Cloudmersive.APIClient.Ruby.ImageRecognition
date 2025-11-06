@@ -1,7 +1,7 @@
 =begin
 #imageapi
 
-#Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+#Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 OpenAPI spec version: v1
 
@@ -15,6 +15,9 @@ require 'date'
 module CloudmersiveImageRecognitionApiClient
   # Individual instance of text occuring in an image; one piece of text
   class TextItem
+    # Text detected in the image
+    attr_accessor :detected_text
+
     # Left X coordinate of the text location; 0 represents the left edge of the input image
     attr_accessor :left_x
 
@@ -30,6 +33,7 @@ module CloudmersiveImageRecognitionApiClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'detected_text' => :'DetectedText',
         :'left_x' => :'LeftX',
         :'top_y' => :'TopY',
         :'width' => :'Width',
@@ -40,6 +44,7 @@ module CloudmersiveImageRecognitionApiClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'detected_text' => :'String',
         :'left_x' => :'Integer',
         :'top_y' => :'Integer',
         :'width' => :'Integer',
@@ -54,6 +59,10 @@ module CloudmersiveImageRecognitionApiClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
+
+      if attributes.has_key?(:'DetectedText')
+        self.detected_text = attributes[:'DetectedText']
+      end
 
       if attributes.has_key?(:'LeftX')
         self.left_x = attributes[:'LeftX']
@@ -90,6 +99,7 @@ module CloudmersiveImageRecognitionApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          detected_text == o.detected_text &&
           left_x == o.left_x &&
           top_y == o.top_y &&
           width == o.width &&
@@ -105,7 +115,7 @@ module CloudmersiveImageRecognitionApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [left_x, top_y, width, height].hash
+      [detected_text, left_x, top_y, width, height].hash
     end
 
     # Builds the object from hash

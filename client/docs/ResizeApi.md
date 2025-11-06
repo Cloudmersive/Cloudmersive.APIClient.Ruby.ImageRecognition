@@ -5,6 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**resize_post**](ResizeApi.md#resize_post) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
+[**resize_resize_ai_super_sampling**](ResizeApi.md#resize_resize_ai_super_sampling) | **POST** /image/resize/ai/target | Resize an image with AI super sampling
 [**resize_resize_simple**](ResizeApi.md#resize_resize_simple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 
 
@@ -51,6 +52,60 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **max_width** | **Integer**| Maximum width of the output image - final image will be as large as possible while less than or equial to this width | 
  **max_height** | **Integer**| Maximum height of the output image - final image will be as large as possible while less than or equial to this height | 
+ **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
+
+### Return type
+
+**String**
+
+### Authorization
+
+[Apikey](../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+
+
+# **resize_resize_ai_super_sampling**
+> String resize_resize_ai_super_sampling(image_file)
+
+Resize an image with AI super sampling
+
+Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.
+
+### Example
+```ruby
+# load the gem
+require 'cloudmersive-image-recognition-api-client'
+# setup authorization
+CloudmersiveImageRecognitionApiClient.configure do |config|
+  # Configure API key authorization: Apikey
+  config.api_key['Apikey'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Apikey'] = 'Bearer'
+end
+
+api_instance = CloudmersiveImageRecognitionApiClient::ResizeApi.new
+
+image_file = File.new('/path/to/file.txt') # File | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+
+begin
+  #Resize an image with AI super sampling
+  result = api_instance.resize_resize_ai_super_sampling(image_file)
+  p result
+rescue CloudmersiveImageRecognitionApiClient::ApiError => e
+  puts "Exception when calling ResizeApi->resize_resize_ai_super_sampling: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **image_file** | **File**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. | 
 
 ### Return type
